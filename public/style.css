@@ -1,0 +1,77 @@
+body{
+    margin: 0px;
+}
+header{
+    display: flex;
+    align-items: center;
+    background-color: rgb(92, 190, 113);
+    justify-content: space-between;
+}
+#titre{
+    text-align: center;
+}
+#filiere{
+    text-align: center;
+    padding: 20px;
+}
+header{
+    height: 120px;
+}
+
+#container{
+    display: flex;
+    margin: 20px;
+    justify-content: space-around;
+}
+
+#content{
+    border: 1px solid gray;
+    padding: 5px;
+    overflow: auto;
+    height: 70vh;
+}
+
+#liste{
+    border: 1px solid gray;
+    height: 60%;
+    overflow: auto;
+}
+#params{
+    border: 1px solid gray;
+    margin-bottom: 10px;
+    height: 40%;
+}
+#side{
+    padding: 5px;
+    height: 70vh;
+}
+
+.listItem{
+    margin: 1px;
+    padding: 2px;
+    background-color: rgb(146, 223, 162);
+}
+.listItem:hover{
+    background-color:  rgb(92, 190, 113);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#side{
+    width: 20vw;
+
+}
+#content{
+    width: 70vw;
+    padding: 5px;
+}
+#canva{
+    height: 100%;
+}
+footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    text-align: center;
+    background-color: rgb(92, 190, 113);
+}
