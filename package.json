@@ -1,0 +1,18 @@
+{
+  "name": "covid19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "webpack --mode production -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ode-rk4": "^1.1.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
