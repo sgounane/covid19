@@ -2,23 +2,24 @@ body{
     margin: 0px;
 }
 header{
-    height: 100px;
     display: flex;
     align-items: center;
-    
     justify-content: space-between;
+    padding-right: 10px;
 }
 #sigma, #beta, #gama{
     width: 50px;
 }
 #titre{
     text-align: center;
+    padding-top: 10px;
 }
 #filiere{
     text-align: center;
-    padding: 20px;
 }
-
+canvas{
+    height: 100%;
+}
 #content{
     
     padding: 5px;

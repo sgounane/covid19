@@ -228,7 +228,7 @@ function creatChart(myCanvas){
                     borderColor: 'rgba(200, 0, 0, 1)'
                 },
                 {
-                    label: "Ssucseptible",
+                    label: "S",
                     borderWidth: 1,
                     data: [],
                     pointRadius: 0,
@@ -236,7 +236,7 @@ function creatChart(myCanvas){
                     borderColor: 'rgba(0, 0, 200, 1)'
                 },
                 {
-                    label: "SActive",
+                    label: "I",
                     data: [],
                     pointRadius: 0,
                     borderWidth: 1,
@@ -244,7 +244,7 @@ function creatChart(myCanvas){
                     borderColor: 'rgba(200, 200, 0, 1)'
                 },
                 {
-                    label: "SGéris",
+                    label: "R",
                     data: [],
                     pointRadius: 0,
                     borderWidth: 1,
@@ -252,7 +252,7 @@ function creatChart(myCanvas){
                     borderColor: 'rgba(0, 200, 0, 1)'
                 },
                 {
-                    label: "SDécés",
+                    label: "D",
                     data: [],
                     pointRadius: 0,
                     borderWidth: 1,
@@ -267,6 +267,7 @@ function creatChart(myCanvas){
             legend: {
                 position: 'top',
             },
+            maintainAspectRatio: false,
             title: {
                 display: true,
                 text: ""

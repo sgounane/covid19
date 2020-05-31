@@ -17,18 +17,7 @@
         <div id="content" class="col-lg-8 border">
             <canvas id="myCanvas"></canvas>
         </div>
-        <div id="side" class="col-lg-4  border">
-
-            <div class="discription">
-                $$ \begin{eqnarray}
-                \frac{dS}{dt} & = & - \beta S(t) I(t)/N \label{eq1a} \\
-                \frac{dI}{dt} & = & \beta S(t) I(t)/N - \gamma I(t) - \sigma I(t)\label{eq1b} \\
-                \frac{dR}{dt} & = & \gamma I(t)  \label{eq1c} \\
-                \frac{dD}{dt} & = & \sigma I(t)  \label{eq1d}
-                \end{eqnarray}
-                $$
-            </div>
-            
+        <div id="side" class="col-lg-4  border">            
             <div id="liste" class="params">
                 <label for="cars">Pays:</label>
                 <select name="cars" id="countries" style="width: 200px;">
@@ -54,6 +43,15 @@
             </div>
             <div class="params">
                 <button id="trainButton" class="btn-success">Train</button>
+            </div>
+            <div class="discription">
+                $$ \begin{eqnarray}
+                \frac{dS}{dt} & = & - \beta S(t) I(t)/N \label{eq1a} \\
+                \frac{dI}{dt} & = & \beta S(t) I(t)/N - \gamma I(t) - \sigma I(t)\label{eq1b} \\
+                \frac{dR}{dt} & = & \gamma I(t)  \label{eq1c} \\
+                \frac{dD}{dt} & = & \sigma I(t)  \label{eq1d}
+                \end{eqnarray}
+                $$
             </div>
             
         </div>            
