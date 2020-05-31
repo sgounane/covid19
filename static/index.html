@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid19 App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="logo.png" alt="">
+        </div>
+        <div id="titre">
+            <h3>Covid19 Monde </h3>
+        </div>
+        <div id="filiere">
+            <h4>MIMSC 2020</h4>
+            <h5>EST Essaouira</h5>
+        </div>
+        
+    </header>
+    <div id="container">
+        <div id="side">
+            
+            <div id="liste" class="params">
+                <label for="cars">Pays:</label>
+                <select name="cars" id="countries" style="width: 200px;">
+                </select> 
+            </div>
+            <div id="params">
+                <div class="params">Beta :
+                    <input type="range" min="0" max="5" value="1" class="slider" id="betaSlider" step="0.002">
+                    <input type="number" id="beta" name="beta" min="0.00" max="10.00" step="0.002"> 
+                </div>
+                <div class="params"> Gama :
+                    <input type="range" min="0" max="1" value="0.5" class="slider" id="gamaSlider" step="0.0002">
+                    <input type="number" id="gama" name="gama" min="0.00" max="1" step="0.0002"> 
+                </div>
+                <div class="params">Sigma:
+                    <input type="range" min="0" max="1" value="0.01" class="slider" id="sigmaSlider" step="0.0002" >
+                    <input type="number" id="sigma" name="sigma" min="0.00" max="1" step="0.0002">
+                </div>
+                <div class="params">
+                    <label for="population">Population:</label>
+                    <input type="number" id="population" name="population" min="0" max="100000000" step="100" value="100">     
+                </div>
+            </div>
+            
+            <div class="params">
+                <button id="trainButton">Train</button>
+            </div>
+        </div>
+        
+        <div id="content">
+            <canvas id="myCanvas"></canvas>
+        </div>
+    </div>
+    <footer>
+        MIMSC 2020
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="_bundle.js"></script>
+</html>

@@ -1,0 +1,41 @@
+body{
+    margin: 0px;
+}
+header{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    
+    justify-content: space-between;
+}
+#sigma, #beta, #gama{
+    width: 50px;
+}
+#titre{
+    text-align: center;
+}
+#filiere{
+    text-align: center;
+    padding: 20px;
+}
+
+#content{
+    
+    padding: 5px;
+    overflow: auto;
+    height: 70vh;
+}
+
+.params{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    text-align: center;
+}

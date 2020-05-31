@@ -53,8 +53,8 @@ def index():
 @app.route("/train",methods=["GET","POST"])
 def train():
     body = request.json
-    df=pd.DataFrame(body)
-    N=body["population"]
+    df=pd.DataFrame(body["raw"])
+    initVals=body["initVals"]
     fit_params = Parameters()
     fit_params.add('N', value=N,vary=False)
     fit_params.add('beta', value=0.4, min=0, max=4.0)

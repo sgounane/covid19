@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block containt%}
+<div class="row bg-light">
+    <ul class="nav nav-tabs bm6 ">
+        <li class="nav-item">
+            <a class="nav-link active" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/simulateur">Simulateur</a>
+        </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/equipe">Equipe</a>
+        </li>
+    </ul>
+</div>
+<div class="text-justify">
+    <H3>1. Introduction</H3>
+    A various mathematical models of the COVID-19 coronavirus has been proposed. We develop here a
+model describing this epidemic, focused on the impact of moroccan government imposed public policies
+designed to contain this epidemic. The proposed model is a general form SIR and SIER epidemic in [2].
+We identfy a constant transmission rate ...
+<h3>2. Mathematical model</h3>
+<h4>2.1. The SIR model</h4>
+<p> The SIR model is one of the most epidemiological compartmental models for the investigation of the spread
+of disease caused by virus. This model was introduced by Kermack and McKendrick in 1927 to describes
+the evolution of the relative proportions of three disjoint classes which change with time t
+</p>
+<p>
+In the SIR model, the population is subdivided into the following three epidemiologically distinct types of
+individuals and this classes are be represented by
+<ol>
+    <li> The susceptible class S(t) the individuals have not yet infected by the disease of interest .</li>
+    <li>The infected class I(t) the individuals who are currently infected and capable to transmitting the
+    disease to others.</li>
+    <li>The removed class R(t) the individuals formally infected who are deceased, or have recovered and
+    are either permanently immune.</li>
+</ol>
+</p>
+<p>Mathematically, the model can formulated as a system of three equations [2]:</p>
+<div>
+    $$ 
+    \begin{equation}\label{Sir-system}
+\begin{cases}
+\displaystyle \frac{ dS(t)}{dt} = -\frac{\beta}{N} S(t) \: I(t)\\ \\
+\displaystyle  \frac{ dI(t)}{dt}  = \frac{\beta}{N} S(t) \: I(t) -\gamma I(t)\\  \\
+\displaystyle  \frac{ dR(t)}{dt} = \gamma I(t). 
+\end{cases}
+\end{equation}
+    $$
+</div>
+<p> The term \(\frac{\beta}{N} S(t) \: I(t) \) represents the disease transmission rate by contact between susceptible and infected individuals.  The parameter  \(\beta\) is the infection rate (to be estimated) and \(\gamma\) is the recovery rate which can be computed with respect to the period of viral shedding ( \(\gamma\sim \frac{1}{10} days^{-1}\) in the case of Covid-19). Adding all equations in the model, we observe that  the total population  \(N=S+I+R\) is a constant. Indeed, we see that</p>
+$$ \displaystyle \frac{ dS(t)}{dt} +   \frac{ dI(t)}{dt}  +  \frac{ dR(t)}{dt} = 0 \qquad \mbox{ and }\;\;  S(t)+I(t)+R(t)=N \mbox{ for each time  } t.$$ 
+<p>The system (\ref{Sir-system}) is completed by the initial conditions. Starting the model when the first infected
+individual appears in the population, which  correspond to \(\displaystyle S(0)=N,  \: I(0)=N-1\) and  \(R(0)=0\). The case where the number  of infected and recovered is neglected with respect to the total population the number of susceptible $S$ in can be approximated by a constant, \( S(t) \sim S_0=N\). </p>
+</div>
+<br>
+<br>
+{% endblock containt%}

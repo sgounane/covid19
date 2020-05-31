@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chartjs": "^0.3.24",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "ode-rk4": "^1.1.3",
     "webpack": "^4.43.0",
