@@ -12,6 +12,8 @@ countriesCombo.addEventListener('change',getStatistics);
 const gamaSlider=document.getElementById("gamaSlider");
 const betaSlider=document.getElementById("betaSlider");
 const sigmaSlider=document.getElementById("sigmaSlider");
+const rolbl=document.getElementById("r0Label");
+
 
 const gamaInput=document.getElementById("gama");
 const betaInput=document.getElementById("beta");
@@ -40,43 +42,47 @@ sigmaInput.addEventListener("input",runSim)
 
 let myChart=creatChart(myCanvas)
 
-let g=gamaSlider.value
-let b=betaSlider.value
-let s=sigmaSlider.value
-
+let g=Number.parseFloat(gamaSlider.value)
+let b=Number.parseFloat(betaSlider.value)
+let s=Number.parseFloat(sigmaSlider.value)
+let r0=Math.floor(1000*b/(g+s))/1000
+console.log(r0)
+rolbl.innerHTML=r0
 //runSim()
 function runSim(e){
     if(e.target.getAttribute("id")==="gamaSlider"){
-        g=e.target.value
+        g=Number.parseFloat(e.target.value)
         gamaInput.value=g
     }
         
     else if(e.target.getAttribute("id")==="betaSlider"){
-        b=e.target.value
+        b=Number.parseFloat(e.target.value)
         betaInput.value=b
     }
     else if(e.target.getAttribute("id")==="sigmaSlider"){
-        s=e.target.value
+        s=Number.parseFloat(e.target.value)
         sigmaInput.value=s
     }else if(e.target.getAttribute("id")==="gama"){
-        g=e.target.value
+        g=Number.parseFloat(e.target.value)
         gamaSlider.value=g
     }
         
     else if(e.target.getAttribute("id")==="beta"){
-        b=e.target.value
+        b=Number.parseFloat(e.target.value)
         betaSlider.value=b
     }
     else if(e.target.getAttribute("id")==="sigma"){
-        s=e.target.value
+        s=Number.parseFloat(e.target.value)
         sigmaSlider.value=s
     }
-    N=populationInput.value
+    N=Number.parseInt(populationInput.value)
     //console.log(b,g,s)
     function copy(x) {
         return Object.assign({},x)
     }
-
+    r0=Math.floor(1000*b/(g+s))/1000
+    console.log(r0)
+    rolbl.innerHTML=r0
     function simulate(f,t0,y0,step,tmax) {
         var integrator = rk4(y0, f, t0, step)
         var t = t0
@@ -176,6 +182,10 @@ function updateChart(chart,title,data,sim){
             chart.data.datasets[1].data=data.active;
             chart.data.datasets[2].data=data.recovered;
             chart.data.datasets[3].data=data.deaths;
+            chart.data.datasets[4].data=[];
+            chart.data.datasets[5].data=[];
+            chart.data.datasets[6].data=[];
+            chart.data.datasets[7].data=[];
             break;
         case 1:
             chart.data.datasets[4].data=data.confirmed;

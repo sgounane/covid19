@@ -6,10 +6,10 @@
             <a class="nav-link" href="/home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="/simulateur">Simulateur</a>
+            <a class="nav-link active" href="/simulateur">Simulator</a>
         </li>
             <li class="nav-item">
-        <a class="nav-link" href="/equipe">Equipe</a>
+        <a class="nav-link" href="/equipe">Team</a>
         </li>
     </ul>
 </div>
@@ -21,6 +21,12 @@
             <div id="liste" class="params">
                 <label for="cars">Pays:</label>
                 <select name="cars" id="countries" style="width: 200px;">
+                </select> 
+            </div>
+            <div id="regions" class="params">
+                <label for="cars">Régions:</label>
+                <select name="regions" id="regions" style="width: 200px;">
+                    <option value="all">Toutes les régions</option>
                 </select> 
             </div>
             <div>
@@ -42,14 +48,16 @@
                 </div>
             </div>
             <div class="params">
+                \(\mathcal{R}_0:=\frac{\beta}{\gamma+\sigma}\)<label for="trainButton" id="r0Label"> </label>
                 <button id="trainButton" class="btn-success">Train</button>
             </div>
-            <div class="discription">
+            <hr>
+            <div class="discription" style="font-size: small">
                 $$ \begin{eqnarray}
-                \frac{dS}{dt} & = & - \beta S(t) I(t)/N \label{eq1a} \\
-                \frac{dI}{dt} & = & \beta S(t) I(t)/N - \gamma I(t) - \sigma I(t)\label{eq1b} \\
-                \frac{dR}{dt} & = & \gamma I(t)  \label{eq1c} \\
-                \frac{dD}{dt} & = & \sigma I(t)  \label{eq1d}
+                \frac{dS}{dt} & = & - \beta S I/N \label{eq1a} \\
+                \frac{dI}{dt} & = & \beta S I/N - (\gamma  + \sigma) I\label{eq1b} \\
+                \frac{dR}{dt} & = & \gamma I  \label{eq1c} \\
+                \frac{dD}{dt} & = & \sigma I  \label{eq1d}
                 \end{eqnarray}
                 $$
             </div>

@@ -6,10 +6,10 @@
             <a class="nav-link active" href="/home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/simulateur">Simulateur</a>
+            <a class="nav-link" href="/simulateur">Simulator</a>
         </li>
             <li class="nav-item">
-        <a class="nav-link" href="/equipe">Equipe</a>
+        <a class="nav-link" href="/team">Team</a>
         </li>
     </ul>
 </div>
@@ -17,7 +17,7 @@
     <H3>1. Introduction</H3>
     A various mathematical models of the COVID-19 coronavirus has been proposed. We develop here a
 model describing this epidemic, focused on the impact of moroccan government imposed public policies
-designed to contain this epidemic. The proposed model is a general form SIR and SIER epidemic in [2].
+designed to contain this epidemic. The proposed model is a general form SIR and SIER epidemic in.
 We identfy a constant transmission rate ...
 <h3>2. Mathematical model</h3>
 <h4>2.1. The SIR model</h4>
@@ -36,7 +36,7 @@ individuals and this classes are be represented by
     are either permanently immune.</li>
 </ol>
 </p>
-<p>Mathematically, the model can formulated as a system of three equations [2]:</p>
+<p>Mathematically, the model can formulated as a system of three equations:</p>
 <div>
     $$ 
     \begin{equation}\label{Sir-system}
@@ -50,8 +50,7 @@ individuals and this classes are be represented by
 </div>
 <p> The term \(\frac{\beta}{N} S(t) \: I(t) \) represents the disease transmission rate by contact between susceptible and infected individuals.  The parameter  \(\beta\) is the infection rate (to be estimated) and \(\gamma\) is the recovery rate which can be computed with respect to the period of viral shedding ( \(\gamma\sim \frac{1}{10} days^{-1}\) in the case of Covid-19). Adding all equations in the model, we observe that  the total population  \(N=S+I+R\) is a constant. Indeed, we see that</p>
 $$ \displaystyle \frac{ dS(t)}{dt} +   \frac{ dI(t)}{dt}  +  \frac{ dR(t)}{dt} = 0 \qquad \mbox{ and }\;\;  S(t)+I(t)+R(t)=N \mbox{ for each time  } t.$$ 
-<p>The system (\ref{Sir-system}) is completed by the initial conditions. Starting the model when the first infected
-individual appears in the population, which  correspond to \(\displaystyle S(0)=N,  \: I(0)=N-1\) and  \(R(0)=0\). The case where the number  of infected and recovered is neglected with respect to the total population the number of susceptible $S$ in can be approximated by a constant, \( S(t) \sim S_0=N\). </p>
+<p>The system above is completed by the initial conditions. Starting the model when the first infected individual appears in the population, which  correspond to \(\displaystyle S(0)=N-1,  \: I(0)=1\) and  \(R(0)=0\). The case where the number  of infected and recovered is neglected with respect to the total population the number of susceptible \(S\) can be approximated by a constant, \( S(t) \sim S_0=N\). </p>
 </div>
 <br>
 <br>
