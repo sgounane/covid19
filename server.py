@@ -1,6 +1,14 @@
 import sys 
 import os
+import pymongo
+import requests
 #sys.path.append(os.path.abspath("./tools/sir"))
+dbname="coviddb"
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient[dbname]
+mycol = mydb["world"]
+
+
 from flask import Flask, render_template, url_for, flash, redirect, request
 from matplotlib import pyplot as plt
 from flask_cors import CORS
@@ -47,6 +55,22 @@ def objective(params,x,data):
     for i in range(ndata):
         resid[i, :] = data[i, :] - ret[i,:]
     return resid.flatten()
+
+@app.route("/country/<code>")
+def getCountry(code):
+    myquery = { "CountryCode": code }
+    mydoc = mycol.find(myquery)
+    type(mydoc)
+    #for x in mydoc:
+        #print(x) 
+    return str(mydoc)
+
+@app.route("/reload")
+def reload():
+    r = requests.get('https://api.covid19api.com/all').json()#https://api.covid19api.com/all')
+    for a in r:
+        mycol.insert_one(a)
+    return r
 
 @app.route("/")
 @app.route("/home")
