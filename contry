@@ -1,0 +1,249 @@
+_id,Country,Slug,ISO2
+5ef5f6fbcd8a9cfc041e60d7,Croatia,croatia,HR
+5ef5f6fccd8a9cfc041e60d8,Kyrgyzstan,kyrgyzstan,KG
+5ef5f6fccd8a9cfc041e60d9,Falkland Islands (Malvinas),falkland-islands-malvinas,FK
+5ef5f6fccd8a9cfc041e60da,Finland,finland,FI
+5ef5f6fccd8a9cfc041e60db,Holy See (Vatican City State),holy-see-vatican-city-state,VA
+5ef5f6fccd8a9cfc041e60dc,Norway,norway,NO
+5ef5f6fccd8a9cfc041e60dd,Liechtenstein,liechtenstein,LI
+5ef5f6fccd8a9cfc041e60de,Pakistan,pakistan,PK
+5ef5f6fccd8a9cfc041e60df,Tonga,tonga,TO
+5ef5f6fccd8a9cfc041e60e0,Congo (Brazzaville),congo-brazzaville,CG
+5ef5f6fccd8a9cfc041e60e1,Djibouti,djibouti,DJ
+5ef5f6fccd8a9cfc041e60e2,Greenland,greenland,GL
+5ef5f6fccd8a9cfc041e60e3,Jamaica,jamaica,JM
+5ef5f6fccd8a9cfc041e60e4,Peru,peru,PE
+5ef5f6fccd8a9cfc041e60e5,Azerbaijan,azerbaijan,AZ
+5ef5f6fccd8a9cfc041e60e6,China,china,CN
+5ef5f6fccd8a9cfc041e60e7,Venezuela (Bolivarian Republic),venezuela,VE
+5ef5f6fccd8a9cfc041e60e8,Zambia,zambia,ZM
+5ef5f6fccd8a9cfc041e60e9,ALA Aland Islands,ala-aland-islands,AX
+5ef5f6fccd8a9cfc041e60ea,Anguilla,anguilla,AI
+5ef5f6fccd8a9cfc041e60eb,Mayotte,mayotte,YT
+5ef5f6fccd8a9cfc041e60ec,Palau,palau,PW
+5ef5f6fccd8a9cfc041e60ed,San Marino,san-marino,SM
+5ef5f6fccd8a9cfc041e60ee,Tunisia,tunisia,TN
+5ef5f6fccd8a9cfc041e60ef,Uganda,uganda,UG
+5ef5f6fccd8a9cfc041e60f0,Cambodia,cambodia,KH
+5ef5f6fccd8a9cfc041e60f1,Russian Federation,russia,RU
+5ef5f6fccd8a9cfc041e60f2,Serbia,serbia,RS
+5ef5f6fccd8a9cfc041e60f3,"Tanzania, United Republic of",tanzania,TZ
+5ef5f6fccd8a9cfc041e60f4,Bahamas,bahamas,BS
+5ef5f6fccd8a9cfc041e60f5,Heard and Mcdonald Islands,heard-and-mcdonald-islands,HM
+5ef5f6fccd8a9cfc041e60f6,Turks and Caicos Islands,turks-and-caicos-islands,TC
+5ef5f6fccd8a9cfc041e60f7,Vanuatu,vanuatu,VU
+5ef5f6fccd8a9cfc041e60f8,Costa Rica,costa-rica,CR
+5ef5f6fccd8a9cfc041e60f9,Japan,japan,JP
+5ef5f6fccd8a9cfc041e60fa,Saudi Arabia,saudi-arabia,SA
+5ef5f6fccd8a9cfc041e60fb,Uzbekistan,uzbekistan,UZ
+5ef5f6fccd8a9cfc041e60fc,Angola,angola,AO
+5ef5f6fccd8a9cfc041e60fd,Czech Republic,czech-republic,CZ
+5ef5f6fccd8a9cfc041e60fe,Eritrea,eritrea,ER
+5ef5f6fccd8a9cfc041e60ff,"Macao, SAR China",macao-sar-china,MO
+5ef5f6fccd8a9cfc041e6100,Ecuador,ecuador,EC
+5ef5f6fccd8a9cfc041e6101,Burundi,burundi,BI
+5ef5f6fccd8a9cfc041e6102,India,india,IN
+5ef5f6fccd8a9cfc041e6103,Nigeria,nigeria,NG
+5ef5f6fccd8a9cfc041e6104,Central African Republic,central-african-republic,CF
+5ef5f6fccd8a9cfc041e6105,French Guiana,french-guiana,GF
+5ef5f6fccd8a9cfc041e6106,Panama,panama,PA
+5ef5f6fccd8a9cfc041e6107,Switzerland,switzerland,CH
+5ef5f6fccd8a9cfc041e6108,Brunei Darussalam,brunei,BN
+5ef5f6fccd8a9cfc041e6109,French Polynesia,french-polynesia,PF
+5ef5f6fccd8a9cfc041e610a,Saint Vincent and Grenadines,saint-vincent-and-the-grenadines,VC
+5ef5f6fccd8a9cfc041e610b,"Taiwan, Republic of China",taiwan,TW
+5ef5f6fccd8a9cfc041e610c,Yemen,yemen,YE
+5ef5f6fccd8a9cfc041e610d,Cape Verde,cape-verde,CV
+5ef5f6fccd8a9cfc041e610e,Montenegro,montenegro,ME
+5ef5f6fccd8a9cfc041e610f,New Zealand,new-zealand,NZ
+5ef5f6fccd8a9cfc041e6110,Aruba,aruba,AW
+5ef5f6fccd8a9cfc041e6111,Belarus,belarus,BY
+5ef5f6fccd8a9cfc041e6112,Portugal,portugal,PT
+5ef5f6fccd8a9cfc041e6113,Cuba,cuba,CU
+5ef5f6fccd8a9cfc041e6114,Faroe Islands,faroe-islands,FO
+5ef5f6fccd8a9cfc041e6115,Morocco,morocco,MA
+5ef5f6fccd8a9cfc041e6116,Saint Lucia,saint-lucia,LC
+5ef5f6fccd8a9cfc041e6117,Swaziland,swaziland,SZ
+5ef5f6fccd8a9cfc041e6118,Botswana,botswana,BW
+5ef5f6fccd8a9cfc041e6119,Grenada,grenada,GD
+5ef5f6fccd8a9cfc041e611a,Guyana,guyana,GY
+5ef5f6fccd8a9cfc041e611b,Trinidad and Tobago,trinidad-and-tobago,TT
+5ef5f6fccd8a9cfc041e611c,Uruguay,uruguay,UY
+5ef5f6fccd8a9cfc041e611d,Cayman Islands,cayman-islands,KY
+5ef5f6fccd8a9cfc041e611e,South Georgia and the South Sandwich Islands,south-georgia-and-the-south-sandwich-islands,GS
+5ef5f6fccd8a9cfc041e611f,Cameroon,cameroon,CM
+5ef5f6fccd8a9cfc041e6120,"Virgin Islands, US",virgin-islands,VI
+5ef5f6fccd8a9cfc041e6121,Saint Pierre and Miquelon,saint-pierre-and-miquelon,PM
+5ef5f6fccd8a9cfc041e6122,Afghanistan,afghanistan,AF
+5ef5f6fccd8a9cfc041e6123,Colombia,colombia,CO
+5ef5f6fccd8a9cfc041e6124,"Micronesia, Federated States of",micronesia,FM
+5ef5f6fccd8a9cfc041e6125,Austria,austria,AT
+5ef5f6fccd8a9cfc041e6126,Fiji,fiji,FJ
+5ef5f6fccd8a9cfc041e6127,Gibraltar,gibraltar,GI
+5ef5f6fccd8a9cfc041e6128,Viet Nam,vietnam,VN
+5ef5f6fccd8a9cfc041e6129,Sao Tome and Principe,sao-tome-and-principe,ST
+5ef5f6fccd8a9cfc041e612a,Chad,chad,TD
+5ef5f6fccd8a9cfc041e612b,Hungary,hungary,HU
+5ef5f6fccd8a9cfc041e612c,Mexico,mexico,MX
+5ef5f6fccd8a9cfc041e612d,Niger,niger,NE
+5ef5f6fccd8a9cfc041e612e,France,france,FR
+5ef5f6fccd8a9cfc041e612f,Tajikistan,tajikistan,TJ
+5ef5f6fccd8a9cfc041e6130,Papua New Guinea,papua-new-guinea,PG
+5ef5f6fccd8a9cfc041e6131,Timor-Leste,timor-leste,TL
+5ef5f6fccd8a9cfc041e6132,Wallis and Futuna Islands,wallis-and-futuna-islands,WF
+5ef5f6fccd8a9cfc041e6133,Canada,canada,CA
+5ef5f6fccd8a9cfc041e6134,Comoros,comoros,KM
+5ef5f6fccd8a9cfc041e6135,"Côte d'Ivoire",cote-divoire,CI
+5ef5f6fccd8a9cfc041e6136,Ethiopia,ethiopia,ET
+5ef5f6fccd8a9cfc041e6137,Nepal,nepal,NP
+5ef5f6fccd8a9cfc041e6138,Norfolk Island,norfolk-island,NF
+5ef5f6fccd8a9cfc041e6139,Réunion,réunion,RE
+5ef5f6fccd8a9cfc041e613a,Syrian Arab Republic (Syria),syria,SY
+5ef5f6fccd8a9cfc041e613b,Guinea-Bissau,guinea-bissau,GW
+5ef5f6fccd8a9cfc041e613c,Lithuania,lithuania,LT
+5ef5f6fccd8a9cfc041e613d,Malawi,malawi,MW
+5ef5f6fccd8a9cfc041e613e,Nicaragua,nicaragua,NI
+5ef5f6fccd8a9cfc041e613f,Congo (Kinshasa),congo-kinshasa,CD
+5ef5f6fccd8a9cfc041e6140,Gambia,gambia,GM
+5ef5f6fccd8a9cfc041e6141,Lao PDR,lao-pdr,LA
+5ef5f6fccd8a9cfc041e6142,Turkmenistan,turkmenistan,TM
+5ef5f6fccd8a9cfc041e6143,British Virgin Islands,british-virgin-islands,VG
+5ef5f6fccd8a9cfc041e6144,Cocos (Keeling) Islands,cocos-keeling-islands,CC
+5ef5f6fccd8a9cfc041e6145,Liberia,liberia,LR
+5ef5f6fccd8a9cfc041e6146,Qatar,qatar,QA
+5ef5f6fccd8a9cfc041e6147,US Minor Outlying Islands,us-minor-outlying-islands,UM
+5ef5f6fccd8a9cfc041e6148,Republic of Kosovo,kosovo,XK
+5ef5f6fccd8a9cfc041e6149,Turkey,turkey,TR
+5ef5f6fccd8a9cfc041e614a,American Samoa,american-samoa,AS
+5ef5f6fccd8a9cfc041e614b,Kuwait,kuwait,KW
+5ef5f6fccd8a9cfc041e614c,Monaco,monaco,MC
+5ef5f6fccd8a9cfc041e614d,Montserrat,montserrat,MS
+5ef5f6fccd8a9cfc041e614e,Svalbard and Jan Mayen Islands,svalbard-and-jan-mayen-islands,SJ
+5ef5f6fccd8a9cfc041e614f,Benin,benin,BJ
+5ef5f6fccd8a9cfc041e6150,"Iran, Islamic Republic of",iran,IR
+5ef5f6fccd8a9cfc041e6151,Malta,malta,MT
+5ef5f6fccd8a9cfc041e6152,Cyprus,cyprus,CY
+5ef5f6fccd8a9cfc041e6153,Maldives,maldives,MV
+5ef5f6fccd8a9cfc041e6154,Slovenia,slovenia,SI
+5ef5f6fccd8a9cfc041e6155,Brazil,brazil,BR
+5ef5f6fccd8a9cfc041e6156,Chile,chile,CL
+5ef5f6fccd8a9cfc041e6157,Sweden,sweden,SE
+5ef5f6fccd8a9cfc041e6158,Armenia,armenia,AM
+5ef5f6fccd8a9cfc041e6159,Bahrain,bahrain,BH
+5ef5f6fccd8a9cfc041e615a,Belize,belize,BZ
+5ef5f6fccd8a9cfc041e615b,Indonesia,indonesia,ID
+5ef5f6fccd8a9cfc041e615c,Iraq,iraq,IQ
+5ef5f6fccd8a9cfc041e615d,Rwanda,rwanda,RW
+5ef5f6fccd8a9cfc041e615e,Korea (South),korea-south,KR
+5ef5f6fccd8a9cfc041e615f,Madagascar,madagascar,MG
+5ef5f6fccd8a9cfc041e6160,United Arab Emirates,united-arab-emirates,AE
+5ef5f6fccd8a9cfc041e6161,Christmas Island,christmas-island,CX
+5ef5f6fccd8a9cfc041e6162,Dominican Republic,dominican-republic,DO
+5ef5f6fccd8a9cfc041e6163,Estonia,estonia,EE
+5ef5f6fccd8a9cfc041e6164,Guadeloupe,guadeloupe,GP
+5ef5f6fccd8a9cfc041e6165,Italy,italy,IT
+5ef5f6fccd8a9cfc041e6166,Tokelau,tokelau,TK
+5ef5f6fccd8a9cfc041e6167,Argentina,argentina,AR
+5ef5f6fccd8a9cfc041e6168,Mali,mali,ML
+5ef5f6fccd8a9cfc041e6169,Oman,oman,OM
+5ef5f6fccd8a9cfc041e616a,Sri Lanka,sri-lanka,LK
+5ef5f6fccd8a9cfc041e616b,Sudan,sudan,SD
+5ef5f6fccd8a9cfc041e616c,Netherlands Antilles,netherlands-antilles,AN
+5ef5f6fccd8a9cfc041e616d,Bolivia,bolivia,BO
+5ef5f6fccd8a9cfc041e616e,Guinea,guinea,GN
+5ef5f6fccd8a9cfc041e616f,Kiribati,kiribati,KI
+5ef5f6fccd8a9cfc041e6170,Lebanon,lebanon,LB
+5ef5f6fccd8a9cfc041e6171,Burkina Faso,burkina-faso,BF
+5ef5f6fccd8a9cfc041e6172,Malaysia,malaysia,MY
+5ef5f6fccd8a9cfc041e6173,Netherlands,netherlands,NL
+5ef5f6fccd8a9cfc041e6174,Bhutan,bhutan,BT
+5ef5f6fccd8a9cfc041e6175,Philippines,philippines,PH
+5ef5f6fccd8a9cfc041e6176,Puerto Rico,puerto-rico,PR
+5ef5f6fccd8a9cfc041e6177,Saint Helena,saint-helena,SH
+5ef5f6fccd8a9cfc041e6178,Poland,poland,PL
+5ef5f6fccd8a9cfc041e6179,Saint-Martin (French part),saint-martin-french-part,MF
+5ef5f6fccd8a9cfc041e617a,Bangladesh,bangladesh,BD
+5ef5f6fccd8a9cfc041e617b,Dominica,dominica,DM
+5ef5f6fccd8a9cfc041e617c,Egypt,egypt,EG
+5ef5f6fccd8a9cfc041e617d,Lesotho,lesotho,LS
+5ef5f6fccd8a9cfc041e617e,Algeria,algeria,DZ
+5ef5f6fccd8a9cfc041e617f,Bouvet Island,bouvet-island,BV
+5ef5f6fccd8a9cfc041e6180,British Indian Ocean Territory,british-indian-ocean-territory,IO
+5ef5f6fccd8a9cfc041e6181,Ghana,ghana,GH
+5ef5f6fccd8a9cfc041e6182,Antarctica,antarctica,AQ
+5ef5f6fccd8a9cfc041e6183,United Kingdom,united-kingdom,GB
+5ef5f6fccd8a9cfc041e6184,Greece,greece,GR
+5ef5f6fccd8a9cfc041e6185,Ireland,ireland,IE
+5ef5f6fccd8a9cfc041e6186,Seychelles,seychelles,SC
+5ef5f6fccd8a9cfc041e6187,Singapore,singapore,SG
+5ef5f6fccd8a9cfc041e6188,Kenya,kenya,KE
+5ef5f6fccd8a9cfc041e6189,Zimbabwe,zimbabwe,ZW
+5ef5f6fccd8a9cfc041e618a,El Salvador,el-salvador,SV
+5ef5f6fccd8a9cfc041e618b,Equatorial Guinea,equatorial-guinea,GQ
+5ef5f6fccd8a9cfc041e618c,Guam,guam,GU
+5ef5f6fccd8a9cfc041e618d,Isle of Man,isle-of-man,IM
+5ef5f6fccd8a9cfc041e618e,Gabon,gabon,GA
+5ef5f6fccd8a9cfc041e618f,Germany,germany,DE
+5ef5f6fccd8a9cfc041e6190,Marshall Islands,marshall-islands,MH
+5ef5f6fccd8a9cfc041e6191,Saint Kitts and Nevis,saint-kitts-and-nevis,KN
+5ef5f6fccd8a9cfc041e6192,Mauritius,mauritius,MU
+5ef5f6fccd8a9cfc041e6193,Moldova,moldova,MD
+5ef5f6fccd8a9cfc041e6194,Ukraine,ukraine,UA
+5ef5f6fccd8a9cfc041e6195,Luxembourg,luxembourg,LU
+5ef5f6fccd8a9cfc041e6196,Antigua and Barbuda,antigua-and-barbuda,AG
+5ef5f6fccd8a9cfc041e6197,Denmark,denmark,DK
+5ef5f6fccd8a9cfc041e6198,Kazakhstan,kazakhstan,KZ
+5ef5f6fccd8a9cfc041e6199,South Sudan,south-sudan,SS
+5ef5f6fccd8a9cfc041e619a,Nauru,nauru,NR
+5ef5f6fccd8a9cfc041e619b,Northern Mariana Islands,northern-mariana-islands,MP
+5ef5f6fccd8a9cfc041e619c,Spain,spain,ES
+5ef5f6fccd8a9cfc041e619d,Andorra,andorra,AD
+5ef5f6fccd8a9cfc041e619e,Guatemala,guatemala,GT
+5ef5f6fccd8a9cfc041e619f,Guernsey,guernsey,GG
+5ef5f6fccd8a9cfc041e61a0,Haiti,haiti,HT
+5ef5f6fccd8a9cfc041e61a1,Mongolia,mongolia,MN
+5ef5f6fccd8a9cfc041e61a2,New Caledonia,new-caledonia,NC
+5ef5f6fccd8a9cfc041e61a3,Samoa,samoa,WS
+5ef5f6fccd8a9cfc041e61a4,South Africa,south-africa,ZA
+5ef5f6fccd8a9cfc041e61a5,"Macedonia, Republic of",macedonia,MK
+5ef5f6fccd8a9cfc041e61a6,Myanmar,myanmar,MM
+5ef5f6fccd8a9cfc041e61a7,Senegal,senegal,SN
+5ef5f6fccd8a9cfc041e61a8,Slovakia,slovakia,SK
+5ef5f6fccd8a9cfc041e61a9,Togo,togo,TG
+5ef5f6fccd8a9cfc041e61aa,Martinique,martinique,MQ
+5ef5f6fccd8a9cfc041e61ab,Sierra Leone,sierra-leone,SL
+5ef5f6fccd8a9cfc041e61ac,Somalia,somalia,SO
+5ef5f6fccd8a9cfc041e61ad,Palestinian Territory,palestine,PS
+5ef5f6fccd8a9cfc041e61ae,Western Sahara,western-sahara,EH
+5ef5f6fccd8a9cfc041e61af,Albania,albania,AL
+5ef5f6fccd8a9cfc041e61b0,Jersey,jersey,JE
+5ef5f6fccd8a9cfc041e61b1,Libya,libya,LY
+5ef5f6fccd8a9cfc041e61b2,Namibia,namibia,NA
+5ef5f6fccd8a9cfc041e61b3,Niue,niue,NU
+5ef5f6fccd8a9cfc041e61b4,Pitcairn,pitcairn,PN
+5ef5f6fccd8a9cfc041e61b5,Romania,romania,RO
+5ef5f6fccd8a9cfc041e61b6,Solomon Islands,solomon-islands,SB
+5ef5f6fccd8a9cfc041e61b7,Suriname,suriname,SR
+5ef5f6fccd8a9cfc041e61b8,Australia,australia,AU
+5ef5f6fccd8a9cfc041e61b9,Belgium,belgium,BE
+5ef5f6fccd8a9cfc041e61ba,"Hong Kong, SAR China",hong-kong-sar-china,HK
+5ef5f6fccd8a9cfc041e61bb,Mauritania,mauritania,MR
+5ef5f6fccd8a9cfc041e61bc,Saint-Barthélemy,saint-barthélemy,BL
+5ef5f6fccd8a9cfc041e61bd,Barbados,barbados,BB
+5ef5f6fccd8a9cfc041e61be,Honduras,honduras,HN
+5ef5f6fccd8a9cfc041e61bf,Mozambique,mozambique,MZ
+5ef5f6fccd8a9cfc041e61c0,Paraguay,paraguay,PY
+5ef5f6fccd8a9cfc041e61c1,United States of America,united-states,US
+5ef5f6fccd8a9cfc041e61c2,Bulgaria,bulgaria,BG
+5ef5f6fccd8a9cfc041e61c3,Korea (North),korea-north,KP
+5ef5f6fccd8a9cfc041e61c4,Thailand,thailand,TH
+5ef5f6fccd8a9cfc041e61c5,Bosnia and Herzegovina,bosnia-and-herzegovina,BA
+5ef5f6fccd8a9cfc041e61c6,French Southern Territories,french-southern-territories,TF
+5ef5f6fccd8a9cfc041e61c7,Georgia,georgia,GE
+5ef5f6fccd8a9cfc041e61c8,Iceland,iceland,IS
+5ef5f6fccd8a9cfc041e61c9,Israel,israel,IL
+5ef5f6fccd8a9cfc041e61ca,Latvia,latvia,LV
+5ef5f6fccd8a9cfc041e61cb,Tuvalu,tuvalu,TV
+5ef5f6fccd8a9cfc041e61cc,Bermuda,bermuda,BM
+5ef5f6fccd8a9cfc041e61cd,Cook Islands,cook-islands,CK
+5ef5f6fccd8a9cfc041e61ce,Jordan,jordan,JO

@@ -1,0 +1,231 @@
+Country,Slug,ISO2,Population
+Afghanistan,afghanistan,AF,38928341
+Albania,albania,AL,2877800
+Algeria,algeria,DZ,43851043
+American Samoa,american-samoa,AS,55197
+Andorra,andorra,AD,77265
+Angola,angola,AO,32866268
+Anguilla,anguilla,AI,15002
+Antigua and Barbuda,antigua-and-barbuda,AG,97928
+Argentina,argentina,AR,45195777
+Armenia,armenia,AM,2963234
+Aruba,aruba,AW,106766
+Australia,australia,AU,25499881
+Austria,austria,AT,9006400
+Azerbaijan,azerbaijan,AZ,10139175
+Bahamas,bahamas,BS,393248
+Bahrain,bahrain,BH,1701583
+Bangladesh,bangladesh,BD,164689383
+Barbados,barbados,BB,287371
+Belarus,belarus,BY,9449321
+Belgium,belgium,BE,11589616
+Belize,belize,BZ,397621
+Benin,benin,BJ,12123198
+Bermuda,bermuda,BM,62273
+Bhutan,bhutan,BT,771612
+Bolivia,bolivia,BO,11673029
+Bosnia and Herzegovina,bosnia-and-herzegovina,BA,3280815
+Botswana,botswana,BW,2351625
+Brazil,brazil,BR,212559409
+British Virgin Islands,british-virgin-islands,VG,30237
+Brunei Darussalam,brunei,BN,437483
+Bulgaria,bulgaria,BG,6948445
+Burkina Faso,burkina-faso,BF,20903278
+Burundi,burundi,BI,11890781
+Cambodia,cambodia,KH,16718971
+Cameroon,cameroon,CM,26545864
+Canada,canada,CA,37742157
+Cape Verde,cape-verde,CV,555988
+Cayman Islands,cayman-islands,KY,65720
+Central African Republic,central-african-republic,CF,4829764
+Chad,chad,TD,16425859
+Chile,chile,CL,19116209
+China,china,CN,1439323774
+Colombia,colombia,CO,50882884
+Comoros,comoros,KM,869595
+Congo (Brazzaville),congo-brazzaville,CG,5518092
+Congo (Kinshasa),congo-kinshasa,CD,89561404
+Cook Islands,cook-islands,CK,17564
+Costa Rica,costa-rica,CR,5094114
+Côte d'Ivoire,cote-divoire,CI,26378275
+Croatia,croatia,HR,4105268
+Cuba,cuba,CU,11326616
+Cyprus,cyprus,CY,1207361
+Czech Republic,czech-republic,CZ,10708982
+Denmark,denmark,DK,5792203
+Djibouti,djibouti,DJ,988002
+Dominica,dominica,DM,71991
+Dominican Republic,dominican-republic,DO,10847904
+Ecuador,ecuador,EC,17643060
+Egypt,egypt,EG,102334403
+El Salvador,el-salvador,SV,6486201
+Equatorial Guinea,equatorial-guinea,GQ,1402985
+Eritrea,eritrea,ER,3546427
+Estonia,estonia,EE,1326539
+Ethiopia,ethiopia,ET,114963583
+Falkland Islands (Malvinas),falkland-islands-malvinas,FK,3483
+Faroe Islands,faroe-islands,FO,48865
+Fiji,fiji,FJ,896444
+Finland,finland,FI,5540718
+France,france,FR,65273512
+French Guiana,french-guiana,GF,298682
+French Polynesia,french-polynesia,PF,280904
+Gabon,gabon,GA,2225728
+Gambia,gambia,GM,2416664
+Georgia,georgia,GE,3989175
+Germany,germany,DE,83783945
+Ghana,ghana,GH,31072945
+Gibraltar,gibraltar,GI,33691
+Greece,greece,GR,10423056
+Greenland,greenland,GL,56772
+Grenada,grenada,GD,112519
+Guadeloupe,guadeloupe,GP,400127
+Guam,guam,GU,168783
+Guatemala,guatemala,GT,17915567
+Guinea,guinea,GN,13132792
+Guinea-Bissau,guinea-bissau,GW,1967998
+Guyana,guyana,GY,786559
+Haiti,haiti,HT,11402533
+Holy See (Vatican City State),holy-see-vatican-city-state,VA,809
+Honduras,honduras,HN,9904608
+"Hong Kong, SAR China",hong-kong-sar-china,HK,7496988
+Hungary,hungary,HU,9660350
+Iceland,iceland,IS,341250
+India,india,IN,1380004385
+Indonesia,indonesia,ID,273523621
+"Iran, Islamic Republic of",iran,IR,83992953
+Iraq,iraq,IQ,40222503
+Ireland,ireland,IE,4937796
+Isle of Man,isle-of-man,IM,85032
+Israel,israel,IL,8655541
+Italy,italy,IT,60461828
+Jamaica,jamaica,JM,2961161
+Japan,japan,JP,126476458
+Jordan,jordan,JO,10203140
+Kazakhstan,kazakhstan,KZ,18776707
+Kenya,kenya,KE,53771300
+Kiribati,kiribati,KI,119446
+Korea (North),korea-north,KP,25778815
+Korea (South),korea-south,KR,51269183
+Kuwait,kuwait,KW,4270563
+Kyrgyzstan,kyrgyzstan,KG,6524191
+Lao PDR,lao-pdr,LA,7275556
+Latvia,latvia,LV,1886202
+Lebanon,lebanon,LB,6825442
+Lesotho,lesotho,LS,2142252
+Liberia,liberia,LR,5057677
+Libya,libya,LY,6871287
+Liechtenstein,liechtenstein,LI,38137
+Lithuania,lithuania,LT,2722291
+Luxembourg,luxembourg,LU,625976
+"Macao, SAR China",macao-sar-china,MO,649342
+"Macedonia, Republic of",macedonia,MK,2083380
+Madagascar,madagascar,MG,27691019
+Malawi,malawi,MW,19129955
+Malaysia,malaysia,MY,32365998
+Maldives,maldives,MV,540542
+Mali,mali,ML,20250834
+Malta,malta,MT,441539
+Marshall Islands,marshall-islands,MH,59194
+Martinique,martinique,MQ,375265
+Mauritania,mauritania,MR,4649660
+Mauritius,mauritius,MU,1271767
+Mayotte,mayotte,YT,272813
+Mexico,mexico,MX,128932753
+"Micronesia, Federated States of",micronesia,FM,115021
+Moldova,moldova,MD,4033963
+Monaco,monaco,MC,39244
+Mongolia,mongolia,MN,3278292
+Montenegro,montenegro,ME,628062
+Montserrat,montserrat,MS,4999
+Morocco,morocco,MA,36910558
+Mozambique,mozambique,MZ,31255435
+Myanmar,myanmar,MM,54409794
+Namibia,namibia,NA,2540916
+Nauru,nauru,NR,10834
+Nepal,nepal,NP,29136808
+Netherlands,netherlands,NL,17134873
+New Caledonia,new-caledonia,NC,285491
+New Zealand,new-zealand,NZ,4822233
+Nicaragua,nicaragua,NI,6624554
+Niger,niger,NE,24206636
+Nigeria,nigeria,NG,206139587
+Niue,niue,NU,1618
+Northern Mariana Islands,northern-mariana-islands,MP,57557
+Norway,norway,NO,5421242
+Oman,oman,OM,5106622
+Pakistan,pakistan,PK,220892331
+Palau,palau,PW,18092
+Palestinian Territory,palestine,PS,5101416
+Panama,panama,PA,4314768
+Papua New Guinea,papua-new-guinea,PG,8947027
+Paraguay,paraguay,PY,7132530
+Peru,peru,PE,32971846
+Philippines,philippines,PH,109581085
+Poland,poland,PL,37846605
+Portugal,portugal,PT,10196707
+Puerto Rico,puerto-rico,PR,2860840
+Qatar,qatar,QA,2881060
+Réunion,réunion,RE,895308
+Romania,romania,RO,19237682
+Russian Federation,russia,RU,145934460
+Rwanda,rwanda,RW,12952209
+Saint Helena,saint-helena,SH,6071
+Saint Kitts and Nevis,saint-kitts-and-nevis,KN,53192
+Saint Lucia,saint-lucia,LC,183629
+Saint Pierre and Miquelon,saint-pierre-and-miquelon,PM,5795
+Saint Vincent and Grenadines,saint-vincent-and-the-grenadines,VC,110947
+Saint-Barthélemy,saint-barthélemy,BL,9885
+Saint-Martin (French part),saint-martin-french-part,MF,38659
+Samoa,samoa,WS,198410
+San Marino,san-marino,SM,33938
+Sao Tome and Principe,sao-tome-and-principe,ST,219161
+Saudi Arabia,saudi-arabia,SA,34813867
+Senegal,senegal,SN,16743930
+Serbia,serbia,RS,8737370
+Seychelles,seychelles,SC,98340
+Sierra Leone,sierra-leone,SL,7976985
+Singapore,singapore,SG,5850343
+Slovakia,slovakia,SK,5459643
+Slovenia,slovenia,SI,2078932
+Solomon Islands,solomon-islands,SB,686878
+Somalia,somalia,SO,15893219
+South Africa,south-africa,ZA,59308690
+South Sudan,south-sudan,SS,11193729
+Spain,spain,ES,46754783
+Sri Lanka,sri-lanka,LK,21413250
+Sudan,sudan,SD,43849269
+Suriname,suriname,SR,586634
+Sweden,sweden,SE,10099270
+Switzerland,switzerland,CH,8654618
+Syrian Arab Republic,syria,SY,17500657
+"Taiwan, Republic of China",taiwan,TW,23816775
+Tajikistan,tajikistan,TJ,9537642
+"Tanzania, United Republic of",tanzania,TZ,59734213
+Thailand,thailand,TH,69799978
+Timor-Leste,timor-leste,TL,1318442
+Togo,togo,TG,8278737
+Tokelau,tokelau,TK,1350
+Tonga,tonga,TO,105697
+Trinidad and Tobago,trinidad-and-tobago,TT,1399491
+Tunisia,tunisia,TN,11818618
+Turkey,turkey,TR,84339067
+Turkmenistan,turkmenistan,TM,6031187
+Turks and Caicos Islands,turks-and-caicos-islands,TC,38718
+Tuvalu,tuvalu,TV,11792
+Uganda,uganda,UG,45741000
+Ukraine,ukraine,UA,43733759
+United Arab Emirates,united-arab-emirates,AE,9890400
+United Kingdom,united-kingdom,GB,67886004
+United States of America,united-states,US,331002647
+Uruguay,uruguay,UY,3473727
+Uzbekistan,uzbekistan,UZ,33469199
+Vanuatu,vanuatu,VU,307150
+Venezuela (Bolivarian Republic),venezuela,VE,28435943
+Viet Nam,vietnam,VN,97338583
+"Virgin Islands, US",virgin-islands,VI,104423
+Wallis and Futuna Islands,wallis-and-futuna-islands,WF,11246
+Western Sahara,western-sahara,EH,597330
+Yemen,yemen,YE,29825968
+Zambia,zambia,ZM,18383956
+Zimbabwe,zimbabwe,ZW,14862927

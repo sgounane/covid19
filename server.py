@@ -2,14 +2,18 @@ import sys
 import os
 import pymongo
 import requests
+from flask import jsonify
+from bson.json_util import dumps
+from bson.json_util import loads
 #sys.path.append(os.path.abspath("./tools/sir"))
 dbname="coviddb"
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient[dbname]
-mycol = mydb["world"]
+dataCl = mydb["data"]
+countryCl = mydb["country"]
 
 
-from flask import Flask, render_template, url_for, flash, redirect, request
+from flask import Flask, render_template, jsonify, url_for, flash, redirect, request
 from matplotlib import pyplot as plt
 from flask_cors import CORS
 
@@ -56,20 +60,36 @@ def objective(params,x,data):
         resid[i, :] = data[i, :] - ret[i,:]
     return resid.flatten()
 
-@app.route("/country/<code>")
+@app.route("/countries")
+def getCountries():
+    myquery = {}
+    mydoc = countryCl.find(myquery)
+    return dumps(mydoc)
+
+@app.route("/dayone/country/<code>")
 def getCountry(code):
     myquery = { "CountryCode": code }
-    mydoc = mycol.find(myquery)
-    type(mydoc)
-    #for x in mydoc:
-        #print(x) 
-    return str(mydoc)
+    mydoc = dataCl.find(myquery)
+    return dumps(mydoc)
 
-@app.route("/reload")
-def reload():
-    r = requests.get('https://api.covid19api.com/all').json()#https://api.covid19api.com/all')
+@app.route("/country/<code>/<province>")
+def getProvince(code,province):
+    myquery = {"$and":[{"CountryCode":code},{"Province":province}]}
+    mydoc = dataCl.find(myquery)
+    return dumps(mydoc)
+
+@app.route("/reload/country")
+def reloadCountry():
+    r = requests.get('https://api.covid19api.com/countries').json()#https://api.covid19api.com/all')
     for a in r:
-        mycol.insert_one(a)
+        countryCl.insert_one(a)
+    return r
+
+@app.route("/reload/data")
+def reloadData():
+    r = requests.get("https://api.covid19api.com/all").json()#https://api.covid19api.com/all')
+    for a in r:
+        dataCl.insert_one(a)
     return r
 
 @app.route("/")
@@ -105,26 +125,9 @@ def train():
     data.append(rowData["deaths"])
     data=np.array(data)
     print(data.shape)
-    #data=np.array([body["confirmed"],body["active"],body["recovered"],body["deaths"]])
-    #data=np.array([body["confirmed"],body["active"]])
     x =df.index
-    #x = np.linspace(0, 86, 87)
-    # for i in range(4):
-    #      y_fit = f(fit_params, x)[i]
-    #      plt.plot(x, data[i, :], '.', x, y_fit, '-')
-    # plt.show()
     out = minimize(objective, fit_params, args=(x, data))
     report_fit(out.params)
-    #Plot the data sets and fits
-    #plt.figure()
-    # for i in range(4):
-    #      y_fit = f(out.params, x)[i]
-    #      plt.plot(x, data[i, :], '.', x, y_fit, '-')
-    # plt.show()
-    #print(dict(out.params.valuesdict()))
-
-    # a=requests.get(apiUrl+"dayone/country/"+body["country"])
-    # print(a.content)
     return dict(out.params.valuesdict())
 
 if __name__== "__main__":

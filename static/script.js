@@ -1,14 +1,11 @@
-//https://api.covid19api.com/dayone/country/morocco
 const rk4 = require("ode-rk4");
-
-//const serverUrl="localhost:5000"
-const serverUrl="gounane.ovh:3000"
 let data={}
-
-//const sideDiv=document.getElementById("liste")
-//const content=document.getElementById("content");
+let countries=[]
 const countriesCombo=document.getElementById("countries");
 countriesCombo.addEventListener('change',getStatistics);
+const provincesCombo=document.getElementById("provinces");
+provincesCombo.addEventListener('change',getStatistics);
+
 const gamaSlider=document.getElementById("gamaSlider");
 const betaSlider=document.getElementById("betaSlider");
 const sigmaSlider=document.getElementById("sigmaSlider");
@@ -121,19 +118,20 @@ function runSim(e){
 }
 
 let httpReq=new XMLHttpRequest();
-httpReq.open("GET","https://api.covid19api.com/countries",true);
+//httpReq.open("GET","https://api.covid19api.com/countries",true);
+httpReq.open("GET",`/countries`,true);
 httpReq.onreadystatechange= function(){
     if(httpReq.readyState==XMLHttpRequest.DONE && httpReq.status==200){
         let resp=JSON.parse(httpReq.response);
+        //console.log(httpReq.response)
         countriesCombo.innerHTML=""
         resp.sort((a,b)=>a.Country>b.Country?1:-1);
         resp.forEach(element => {
-            if(element.ISO2!="EH"){
+            if(element.ISO2!="EH"){//sahara
+                countries.push(element)
                 let d=document.createElement('option')
-                //d.classList.add("listItem")
                 d.setAttribute('value',element.ISO2)
                 d.textContent=element.Country;
-                //d.addEventListener('select',getStatistics)
                 countriesCombo.appendChild(d)
             }
         });
@@ -141,7 +139,6 @@ httpReq.onreadystatechange= function(){
         let event = document.createEvent('Event');
         event.initEvent('change', true, true);
         countriesCombo.dispatchEvent(event);
-
     }
 }
 httpReq.send();
@@ -150,35 +147,48 @@ function getStatistics(e){
     let idx=e.target.selectedIndex
     let code=elm[idx].value
     let title=elm[idx].innerHTML
-    httpReq.open("GET",`https://api.covid19api.com/dayone/country/${code}`)
+    let country=countries.filter(e=>e.ISO2==code)[0]
+    N=Number.parseInt(country.Population)
+    if(country.Provinces){
+        provinces=country.Provinces
+        provinces.forEach(element=>{
+            let d=document.createElement('option')
+            d.setAttribute('value',element)
+            d.textContent=element;
+            provincesCombo.appendChild(d)
+        })
+    }
+    console.log(provinces[1])
+    httpReq.open("GET",`/dayone/country/${code}`)
     httpReq.onreadystatechange=()=>{
         if(httpReq.readyState==4 && httpReq.status==200){
             let resp=JSON.parse(httpReq.response)
+            resp=resp.filter(e=> e.Province=="")
             tmax=resp.length
-            data=respToDataSets(resp)
-           // let a=new Date().getDate
 
-           updateChart(myChart,title,data,0) 
+            data=respToDataSets(resp)
+            updateChart(myChart,title,data,0) 
         }
     }
     httpReq.send()
 }
 
 function respToDataSets(resp){
-    N=Math.max.apply(Math, resp.map(function(o) { return o.Confirmed; }))*2
+    //N=Math.max.apply(Math, resp.map(function(o) { return o.Confirmed; }))*2
     populationInput.value=N
     const lbl=resp.map(e=>`${new Date(e.Date).getDate()}/${new Date(e.Date).getMonth()+1}`)
     const confirmed=resp.map(e=> N-e.Recovered-e.Deaths-e.Active)
     const active=resp.map(e=> e.Active)
     const recovered=resp.map(e=> e.Recovered)
     const deaths=resp.map(e=> e.Deaths)
-    return {lbl,confirmed,active,recovered,deaths,population:N}
+    const acc=resp.map(e=> e.Confirmed)
+    return {lbl,acc,confirmed,active,recovered,deaths,population:N}
 }
 
 function updateChart(chart,title,data,sim){
     chart.data.labels=data.lbl;
     switch(sim){
-        case 0:  chart.data.datasets[0].data=data.confirmed;
+        case 0:  chart.data.datasets[0].data=data.acc//Confirmed;
             chart.data.datasets[1].data=data.active;
             chart.data.datasets[2].data=data.recovered;
             chart.data.datasets[3].data=data.deaths;
@@ -188,7 +198,7 @@ function updateChart(chart,title,data,sim){
             chart.data.datasets[7].data=[];
             break;
         case 1:
-            chart.data.datasets[4].data=data.confirmed;
+            chart.data.datasets[4].data=data.acc//confirmed;
             chart.data.datasets[5].data=data.active;
             chart.data.datasets[6].data=data.recovered;
             chart.data.datasets[7].data=data.deaths;
@@ -206,7 +216,7 @@ function creatChart(myCanvas){
             labels: [],
             datasets:[
                 {
-                    label: "sucseptible",
+                    label: "Confirmed",
                     data: [],
                     showLine:false,
                     pointRadius: 1,
@@ -238,7 +248,7 @@ function creatChart(myCanvas){
                     borderColor: 'rgba(200, 0, 0, 1)'
                 },
                 {
-                    label: "S",
+                    label: "C",
                     borderWidth: 1,
                     data: [],
                     pointRadius: 0,
