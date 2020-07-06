@@ -164,8 +164,8 @@ function getStatistics(e){
     httpReq.onreadystatechange=()=>{
         if(httpReq.readyState==4 && httpReq.status==200){
             let resp=JSON.parse(httpReq.response)
-            console.log("response0: ",resp)
-            resp=resp.filter(e=> e.Province=="")
+            console.log("response00: ",resp)
+            //resp=resp.filter(e=> e.Province=="false")
             tmax=resp.length
             console.log("response1: ",resp)
             data=respToDataSets(resp)
