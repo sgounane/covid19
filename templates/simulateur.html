@@ -16,6 +16,10 @@
     <div class="row pt-1">
         <div id="content" class="col-lg-8 border">
             <canvas id="myCanvas"></canvas>
+            <div id="spinner">
+                <div class="lds-dual-ring"> </div>
+            </div>
+            
         </div>
         <div id="side" class="col-lg-4  border">            
             <div id="liste" class="params">
@@ -51,6 +55,7 @@
                 \(\mathcal{R}_0:=\frac{\beta}{\gamma+\sigma}\)<label for="trainButton" id="r0Label"> </label>
                 <button id="trainButton" class="btn-success">Train</button>
             </div>
+            
             <hr>
             <div class="discription" style="font-size: small">
                 $$ \begin{eqnarray}

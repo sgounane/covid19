@@ -2,6 +2,7 @@ const rk4 = require("ode-rk4");
 let data={}
 let countries=[]
 const countriesCombo=document.getElementById("countries");
+const spinner=document.getElementById("spinner");
 countriesCombo.addEventListener('change',getStatistics);
 const provincesCombo=document.getElementById("provinces");
 provincesCombo.addEventListener('change',getStatistics);
@@ -163,10 +164,12 @@ function getStatistics(e){
     httpReq.onreadystatechange=()=>{
         if(httpReq.readyState==4 && httpReq.status==200){
             let resp=JSON.parse(httpReq.response)
+            console.log("response0: ",resp)
             resp=resp.filter(e=> e.Province=="")
             tmax=resp.length
-
+            console.log("response1: ",resp)
             data=respToDataSets(resp)
+            console.log("response2: ",resp)
             updateChart(myChart,title,data,0) 
         }
     }
@@ -301,6 +304,7 @@ function creatChart(myCanvas){
 
 function postTrainData(){
     var myHeaders = new Headers();
+    spinner.style.display="inline-block"
     myHeaders.append("Content-Type", "application/json");
 
     initVals=
@@ -324,15 +328,18 @@ function postTrainData(){
     .then(response =>response.text())
     .then(result => {
         console.log(result)
-        params=JSON.parse(result)
-        betaInput.value= params.beta
-        gamaInput.value= params.gamma
-        sigmaInput.value= params.sigma
-        var event = document.createEvent('Event');
-        event.initEvent('input', true, true);
-        betaInput.dispatchEvent(event);
-        gamaInput.dispatchEvent(event);
-        sigmaInput.dispatchEvent(event);
+        r=JSON.parse(result)
+        params=r.params
+        updateChart(myChart,"Morocco",r.y,1)
+        // betaInput.value= params.beta
+        // gamaInput.value= params.gamma
+        // sigmaInput.value= params.sigma
+        // var event = document.createEvent('Event');
+        // event.initEvent('input', true, true);
+        // betaInput.dispatchEvent(event);
+        // gamaInput.dispatchEvent(event);
+        // sigmaInput.dispatchEvent(event);
+        spinner.style.display="none"
     })
     .catch(error => console.log('error', error));
 }

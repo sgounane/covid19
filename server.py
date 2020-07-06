@@ -5,6 +5,7 @@ import requests
 from flask import jsonify
 from bson.json_util import dumps
 from bson.json_util import loads
+from fitting import *
 #sys.path.append(os.path.abspath("./tools/sir"))
 dbname="coviddb"
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -28,37 +29,6 @@ from lmfit import Parameters, minimize, report_fit
 app=Flask(__name__)
 
 CORS(app)
-apiUrl = "https://api.covid19api.com/"
-
-# The SIR model differential equations.
-def deriv(y, t, N, beta, gamma, sigma):
-    S, I, R , D = y
-    dSdt = -beta * S * I / N
-    dIdt = beta * S * I / N - gamma * I- sigma * I
-    dRdt = gamma * I
-    dDdt = sigma * I
-    return dSdt, dIdt, dRdt , dDdt
-
-def f(params,x):
-    N= params["N"]
-    I0, R0, D0 = 1, 0, 0
-    # Everyone else, S0, is susceptible to infection initially.
-    S0 = N - I0 - R0 - D0
-    y0 = S0, I0, R0, D0
-    # Integrate the SIR equations over the time grid, t.
-    beta= params["beta"]
-    gamma= params["gamma"]
-    sigma= params["sigma"]
-    return odeint(deriv, y0, x, args=(N,beta, gamma, sigma)).T
-
-def objective(params,x,data):
-    # Initial number of infected and recovered individuals, I0 and R0.
-    ndata, _ = data.shape
-    resid = 0.0*data[:]
-    ret=f(params,x)
-    for i in range(ndata):
-        resid[i, :] = data[i, :] - ret[i,:]
-    return resid.flatten()
 
 @app.route("/countries")
 def getCountries():
@@ -87,10 +57,13 @@ def reloadCountry():
 
 @app.route("/reload/data")
 def reloadData():
-    r = requests.get("https://api.covid19api.com/all").json()#https://api.covid19api.com/all')
-    for a in r:
-        dataCl.insert_one(a)
-    return r
+    countries = requests.get('https://api.covid19api.com/countries').json()
+    #print(countries[0])
+    for country in countries:
+        r = requests.get("https://api.covid19api.com/dayone/country/"+country["ISO2"]).json()#https://api.covid19api.com/all')
+        for a in r:
+           dataCl.insert_one(a)
+    return "countries"
 
 @app.route("/")
 @app.route("/home")
@@ -119,16 +92,24 @@ def train():
     fit_params.add('beta', value=initVals["beta"], min=0, max=4.0)
     fit_params.add('gamma', value=initVals["gamma"], min=0, max=1.0)
     fit_params.add('sigma', value=initVals["sigma"], min=0, max=1.0)
+    
     data=[rowData["confirmed"]]
     data.append(rowData["active"])
     data.append(rowData["recovered"])
     data.append(rowData["deaths"])
     data=np.array(data)
-    print(data.shape)
-    x =df.index
-    out = minimize(objective, fit_params, args=(x, data))
-    report_fit(out.params)
-    return dict(out.params.valuesdict())
+    n=data.shape[1]
+    x=np.linspace(1,n,n)
+    N=int(rowData["population"])
+    print(N)
+    y0=[N-1,1,0,0]
+    tc=20
+    eps=8
+    out,y=result(data,y0,N,tc,eps)
+    print(report_fit(out.params))
+    resp=dict(out.params.valuesdict())
+    print(resp)
+    return {"params":dict(out.params.valuesdict()), "y":{"lbl":x.tolist(),"acc":(y[1]+y[2]+y[3]).tolist(),"active":y[1].tolist(),"recovered":y[2].tolist(),"deaths":y[3].tolist()}}
 
 if __name__== "__main__":
     app.run(debug=True,port=5000)
