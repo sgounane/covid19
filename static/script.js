@@ -6,6 +6,8 @@ const spinner=document.getElementById("spinner");
 countriesCombo.addEventListener('change',getStatistics);
 const provincesCombo=document.getElementById("provinces");
 provincesCombo.addEventListener('change',getStatistics);
+const modeleCombo=document.getElementById("modele");
+modeleCombo.addEventListener('change',setModelParams);
 
 const gamaSlider=document.getElementById("gamaSlider");
 const betaSlider=document.getElementById("betaSlider");
@@ -46,6 +48,12 @@ let s=Number.parseFloat(sigmaSlider.value)
 let r0=Math.floor(1000*b/(g+s))/1000
 console.log(r0)
 rolbl.innerHTML=r0
+let model="SIR"
+function setModelParams(e){
+    let elm=e.target.options;
+    let idx=e.target.selectedIndex
+    model=elm[idx].value
+}
 //runSim()
 function runSim(e){
     if(e.target.getAttribute("id")==="gamaSlider"){
@@ -79,7 +87,6 @@ function runSim(e){
         return Object.assign({},x)
     }
     r0=Math.floor(1000*b/(g+s))/1000
-    console.log(r0)
     rolbl.innerHTML=r0
     function simulate(f,t0,y0,step,tmax) {
         var integrator = rk4(y0, f, t0, step)
@@ -159,17 +166,13 @@ function getStatistics(e){
             provincesCombo.appendChild(d)
         })
     }
-    console.log(provinces[1])
     httpReq.open("GET",`/dayone/country/${code}`)
     httpReq.onreadystatechange=()=>{
         if(httpReq.readyState==4 && httpReq.status==200){
             let resp=JSON.parse(httpReq.response)
-            console.log("response00: ",resp)
-            //resp=resp.filter(e=> e.Province=="false")
+            resp=resp.filter(e=> e.Province=="false"||e.Province=="")
             tmax=resp.length
-            console.log("response1: ",resp)
             data=respToDataSets(resp)
-            console.log("response2: ",resp)
             updateChart(myChart,title,data,0) 
         }
     }
@@ -306,10 +309,10 @@ function postTrainData(){
     var myHeaders = new Headers();
     spinner.style.display="inline-block"
     myHeaders.append("Content-Type", "application/json");
-
-    initVals=
+    
     raw={
         data,
+        model,
         initVals:{
             gamma:Number.parseFloat(gamaInput.value),
             beta:Number.parseFloat(betaInput.value),
@@ -327,7 +330,6 @@ function postTrainData(){
     fetch("/train", requestOptions)
     .then(response =>response.text())
     .then(result => {
-        console.log(result)
         r=JSON.parse(result)
         params=r.params
         updateChart(myChart,"Morocco",r.y,1)

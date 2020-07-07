@@ -27,7 +27,9 @@ canvas{
     overflow: auto;
     height: 70vh;
 }
-
+#sirParams{
+    display: block;
+}
 .params{
     display: flex;
     justify-content: space-between;

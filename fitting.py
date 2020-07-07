@@ -96,17 +96,24 @@ def objective(params,f,x,data,y0):
         resid[i, :] =data[i, :] - ret[i,:]#/(1e-5+data[i, :])
     return resid.flatten()
 
-def result(data,y0,N,tc,eps):
+def sir(data,y0,N,tc,eps):
   fit_params=getParams(N,1,0.2,0.02,0.01,tc,eps)  
   n=data.shape[1]
   x=np.linspace(1,n,n)
   print(n)
   fit_params["eps"].value=eps
   fit_params["p"].value=1
-  #fit_params["p"].vary=False
-  #out = minimize(objective, fit_params, nan_policy='omit', args=(f,x,data,y0))
-
-  #fit_params["p"].value=1
+  fit_params["p"].vary=False
+  out = minimize(objective, fit_params, nan_policy='omit', args=(f,x,data,y0))
+  y=f(out.params,x,y0)
+  return out,y
+def sirp(data,y0,N,tc,eps):
+  fit_params=getParams(N,1,0.2,0.02,0.01,tc,eps)  
+  n=data.shape[1]
+  x=np.linspace(1,n,n)
+  print(n)
+  fit_params["eps"].value=eps
+  fit_params["p"].value=1
   fit_params["p"].vary=True
   out = minimize(objective, fit_params, nan_policy='omit', args=(fahdFix,x,data,y0))
   y=fahdFix(out.params,x,y0)

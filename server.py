@@ -84,15 +84,6 @@ def train():
     rowData=body["data"]
     df=pd.DataFrame(rowData)
     initVals=body["initVals"]
-    
-    print(initVals)
-   
-    fit_params = Parameters()
-    fit_params.add('N', value=rowData["population"],vary=False)
-    fit_params.add('beta', value=initVals["beta"], min=0, max=4.0)
-    fit_params.add('gamma', value=initVals["gamma"], min=0, max=1.0)
-    fit_params.add('sigma', value=initVals["sigma"], min=0, max=1.0)
-    
     data=[rowData["confirmed"]]
     data.append(rowData["active"])
     data.append(rowData["recovered"])
@@ -105,7 +96,13 @@ def train():
     y0=[N-1,1,0,0]
     tc=20
     eps=8
-    out,y=result(data,y0,N,tc,eps)
+    model=body["model"]
+    if model=="SIR":
+        print("==========SIR===========")
+        out,y=sir(data,y0,N,tc,eps)
+    elif model=="SIRP":
+        print("==========SIRP===========")
+        out,y=sirp(data,y0,N,tc,eps)
     print(report_fit(out.params))
     resp=dict(out.params.valuesdict())
     print(resp)
