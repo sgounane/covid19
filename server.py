@@ -89,24 +89,30 @@ def train():
     data.append(rowData["recovered"])
     data.append(rowData["deaths"])
     data=np.array(data)
-    n=data.shape[1]
-    x=np.linspace(1,n,n)
     N=int(rowData["population"])
-    print(N)
+    I=np.array(rowData["acc"])
+    #print(I)
     y0=[N-1,1,0,0]
     tc=20
     eps=8
     model=body["model"]
     if model=="SIR":
         print("==========SIR===========")
-        out,y=sir(data,y0,N,tc,eps)
+        resp=sir(data,y0,N,tc,eps)
     elif model=="SIRP":
         print("==========SIRP===========")
-        out,y=sirp(data,y0,N,tc,eps)
-    print(report_fit(out.params))
-    resp=dict(out.params.valuesdict())
-    print(resp)
-    return {"params":dict(out.params.valuesdict()), "y":{"lbl":x.tolist(),"acc":(y[1]+y[2]+y[3]).tolist(),"active":y[1].tolist(),"recovered":y[2].tolist(),"deaths":y[3].tolist()}}
+        resp=sirp(data,y0,N,tc,eps)
+    elif model=="Logistic":
+        print("==========Logistic===========")
+        resp=logistic(I,N)
+    elif model=="BiLogistic":
+        print("==========BiLogistic===========")
+        resp=bilogistic(I,N)
+    elif model=="BiLogisticG":
+        print("==========BiLogisticG===========")
+        resp=bilogisticgama(I,N)
+    
+    return resp 
 
 if __name__== "__main__":
     app.run(debug=True,port=5000)

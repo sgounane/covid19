@@ -1,6 +1,8 @@
 const rk4 = require("ode-rk4");
 let data={}
 let countries=[]
+let countryName="Morocco"
+let lbl=[]
 const countriesCombo=document.getElementById("countries");
 const spinner=document.getElementById("spinner");
 countriesCombo.addEventListener('change',getStatistics);
@@ -49,6 +51,7 @@ let r0=Math.floor(1000*b/(g+s))/1000
 console.log(r0)
 rolbl.innerHTML=r0
 let model="SIR"
+
 function setModelParams(e){
     let elm=e.target.options;
     let idx=e.target.selectedIndex
@@ -154,7 +157,7 @@ function getStatistics(e){
     let elm=e.target.options;
     let idx=e.target.selectedIndex
     let code=elm[idx].value
-    let title=elm[idx].innerHTML
+    countryName=elm[idx].innerHTML
     let country=countries.filter(e=>e.ISO2==code)[0]
     N=Number.parseInt(country.Population)
     if(country.Provinces){
@@ -173,7 +176,7 @@ function getStatistics(e){
             resp=resp.filter(e=> e.Province=="false"||e.Province=="")
             tmax=resp.length
             data=respToDataSets(resp)
-            updateChart(myChart,title,data,0) 
+            updateChart(myChart,countryName,data,0) 
         }
     }
     httpReq.send()
@@ -208,6 +211,9 @@ function updateChart(chart,title,data,sim){
             chart.data.datasets[5].data=data.active;
             chart.data.datasets[6].data=data.recovered;
             chart.data.datasets[7].data=data.deaths;
+            break;
+        case 2:
+            chart.data.datasets[4].data=data.acc//confirmed;
             break;
     }
    
@@ -309,7 +315,7 @@ function postTrainData(){
     var myHeaders = new Headers();
     spinner.style.display="inline-block"
     myHeaders.append("Content-Type", "application/json");
-    
+    console.log("Training ....")
     raw={
         data,
         model,
@@ -331,8 +337,11 @@ function postTrainData(){
     .then(response =>response.text())
     .then(result => {
         r=JSON.parse(result)
+        console.log(r)
         params=r.params
-        updateChart(myChart,"Morocco",r.y,1)
+        if ((model=="SIR") ||(model=="SIRP") ) updateChart(myChart,countryName,r.y,1)
+        else if ((model=="Logistic") ||(model=="BiLogistic")|| (model=="BiLogisticG") ) updateChart(myChart,"Logistic",r.y,2)
+
         // betaInput.value= params.beta
         // gamaInput.value= params.gamma
         // sigmaInput.value= params.sigma

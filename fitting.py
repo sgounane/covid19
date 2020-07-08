@@ -1,6 +1,7 @@
 from scipy.integrate import odeint
-import pandas as pd
+import scipy.optimize as optim
 from lmfit import Parameters, minimize, report_fit
+import pandas as pd
 import numpy as np
 def deriv(y, x, N, beta, gamma, sigma,p):
     S, I, R , D = y
@@ -106,7 +107,9 @@ def sir(data,y0,N,tc,eps):
   fit_params["p"].vary=False
   out = minimize(objective, fit_params, nan_policy='omit', args=(f,x,data,y0))
   y=f(out.params,x,y0)
-  return out,y
+  resp={"params":dict(out.params.valuesdict()), "y":{"lbl":x.tolist(),"acc":(y[1]+y[2]+y[3]).tolist(),"active":y[1].tolist(),"recovered":y[2].tolist(),"deaths":y[3].tolist()}}
+  return resp
+
 def sirp(data,y0,N,tc,eps):
   fit_params=getParams(N,1,0.2,0.02,0.01,tc,eps)  
   n=data.shape[1]
@@ -117,4 +120,46 @@ def sirp(data,y0,N,tc,eps):
   fit_params["p"].vary=True
   out = minimize(objective, fit_params, nan_policy='omit', args=(fahdFix,x,data,y0))
   y=fahdFix(out.params,x,y0)
-  return out,y
+  resp={"params":dict(out.params.valuesdict()), "y":{"lbl":x.tolist(),"acc":(y[1]+y[2]+y[3]).tolist(),"active":y[1].tolist(),"recovered":y[2].tolist(),"deaths":y[3].tolist()}}
+  return resp
+
+def logisticModel(t,a,b,c):
+    return c/(1+np.exp(-b*(t-a)))
+
+def logistic(I,N):
+    print(I)
+    n=I.size
+    x=np.linspace(0,n-1,n)
+    bounds=(0,[1e6,10,N])
+    p0=np.random.exponential(size=3)
+    (a,b,c),cov=optim.curve_fit(logisticModel,x,I,bounds=bounds,p0=p0)
+    Y=logisticModel(x,a,b,c)
+    resp={"params":{"a":a,"b":b,"c":c}, "y":{"lbl":x.tolist(),"acc":Y.tolist()}}
+    return resp
+
+def bilogisticModel(t,a1,b1,c1,a2,b2,c2):
+    return (c1/(1+np.exp(-b1*(t-a1))))+(c2/(1+np.exp(-b2*(t-a2))))
+
+def bilogistic(I,N):
+    n=I.size
+    x=np.linspace(0,n-1,n)
+    bounds=(0,[1e6,10,N,1e6,10,N])
+    p0=np.random.exponential(size=6)
+    (a1,b1,c1,a2,b2,c2),cov=optim.curve_fit(bilogisticModel,x,I,bounds=bounds,p0=p0)
+    x=np.linspace(0,n-1,n)
+    Y=bilogisticModel(x,a1,b1,c1,a2,b2,c2)
+    resp={"params":{"a1":a1,"b1":b1,"c1":c1,"a2":a2,"b2":b2,"c2":c2}, "y":{"lbl":x.tolist(),"acc":Y.tolist()}}
+    return resp
+
+def bilogisticgamaModel(t,a1,b1,c1,gama1,a2,b2,c2,gama2):
+    return (c1/(1+np.exp(-b1*gama1*(t-a1))**(1/gama1)))+(c2/(1+np.exp(-b2*gama2*(t-a2)))**(1/gama2))
+
+def bilogisticgama(I,N):
+    n=I.size
+    x=np.linspace(0,n-1,n)
+    bounds=(0,[1e6,10,N,5,1e6,10,N,5])
+    p0=np.random.exponential(size=8)
+    (a1,b1,c1,gama1,a2,b2,c2,gama2),cov=optim.curve_fit(bilogisticgamaModel,x,I,bounds=bounds,p0=p0)
+    Y=bilogisticgamaModel(x,a1,b1,c1,gama1,a2,b2,c2,gama2)
+    resp={"params":{"a1":a1,"b1":b1,"c1":c1,"gama1":gama1,"a2":a2,"b2":b2,"c2":c2,"gama2":gama2}, "y":{"lbl":x.tolist(),"acc":Y.tolist()}}
+    return resp
