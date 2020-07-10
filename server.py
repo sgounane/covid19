@@ -75,7 +75,7 @@ def home():
 def simulateur():
     return render_template("simulateur.html")
 
-@app.route("/equipe")
+@app.route("/team")
 def equipe():
     return render_template("equipe.html")
 

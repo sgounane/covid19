@@ -194,7 +194,7 @@ function respToDataSets(resp){
     return {lbl,acc,confirmed,active,recovered,deaths,population:N}
 }
 
-function updateChart(chart,title,data,sim){
+function updateChart(chart,title,y,sim){
     chart.data.labels=data.lbl;
     switch(sim){
         case 0:  chart.data.datasets[0].data=data.acc//Confirmed;
@@ -207,13 +207,23 @@ function updateChart(chart,title,data,sim){
             chart.data.datasets[7].data=[];
             break;
         case 1:
-            chart.data.datasets[4].data=data.acc//confirmed;
-            chart.data.datasets[5].data=data.active;
-            chart.data.datasets[6].data=data.recovered;
-            chart.data.datasets[7].data=data.deaths;
+            chart.data.datasets[0].data=data.acc//Confirmed;
+            chart.data.datasets[1].data=data.active;
+            chart.data.datasets[2].data=data.recovered;
+            chart.data.datasets[3].data=data.deaths;
+            chart.data.datasets[4].data=y.acc//confirmed;
+            chart.data.datasets[5].data=y.active;
+            chart.data.datasets[6].data=y.recovered;
+            chart.data.datasets[7].data=y.deaths;
             break;
         case 2:
-            chart.data.datasets[4].data=data.acc//confirmed;
+            chart.data.datasets[4].data=y.acc//confirmed;
+            chart.data.datasets[5].data=[];
+            chart.data.datasets[6].data=[];
+            chart.data.datasets[7].data=[];
+            chart.data.datasets[1].data=[];
+            chart.data.datasets[2].data=[];
+            chart.data.datasets[3].data=[];
             break;
     }
    
@@ -339,17 +349,20 @@ function postTrainData(){
         r=JSON.parse(result)
         console.log(r)
         params=r.params
-        if ((model=="SIR") ||(model=="SIRP") ) updateChart(myChart,countryName,r.y,1)
+        if ((model=="SIR") ||(model=="SIRP") ){
+            updateChart(myChart,countryName,r.y,1)
+            //betaInput.value= params.beta
+            //gamaInput.value= params.gamma
+            //sigmaInput.value= params.sigma
+            //var event = document.createEvent('Event');
+            //event.initEvent('input', true, true);
+            //betaInput.dispatchEvent(event);
+            //gamaInput.dispatchEvent(event);
+            //sigmaInput.dispatchEvent(event);
+        } 
         else if ((model=="Logistic") ||(model=="BiLogistic")|| (model=="BiLogisticG") ) updateChart(myChart,"Logistic",r.y,2)
 
-        // betaInput.value= params.beta
-        // gamaInput.value= params.gamma
-        // sigmaInput.value= params.sigma
-        // var event = document.createEvent('Event');
-        // event.initEvent('input', true, true);
-        // betaInput.dispatchEvent(event);
-        // gamaInput.dispatchEvent(event);
-        // sigmaInput.dispatchEvent(event);
+        // 
         spinner.style.display="none"
     })
     .catch(error => console.log('error', error));
