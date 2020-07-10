@@ -118,8 +118,12 @@ def sirp(data,y0,N,tc,eps):
   fit_params["eps"].value=eps
   fit_params["p"].value=1
   fit_params["p"].vary=True
-  out = minimize(objective, fit_params, nan_policy='omit', args=(fahdFix,x,data,y0))
-  y=fahdFix(out.params,x,y0)
+  if(tc==0):
+    out = minimize(objective, fit_params, nan_policy='omit', args=(f,x,data,y0))
+    y=f(out.params,x,y0)
+  else:
+    out = minimize(objective, fit_params, nan_policy='omit', args=(f,x,data,y0))
+    y=fahdFix(out.params,x,y0)
   resp={"params":dict(out.params.valuesdict()), "y":{"lbl":x.tolist(),"acc":(y[1]+y[2]+y[3]).tolist(),"active":y[1].tolist(),"recovered":y[2].tolist(),"deaths":y[3].tolist()}}
   return resp
 

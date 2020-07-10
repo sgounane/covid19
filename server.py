@@ -61,8 +61,9 @@ def reloadData():
     #print(countries[0])
     for country in countries:
         r = requests.get("https://api.covid19api.com/dayone/country/"+country["ISO2"]).json()#https://api.covid19api.com/all')
-        for a in r:
-           dataCl.insert_one(a)
+        print(r)
+        #for a in r:
+           #dataCl.insert_one(a)
     return "countries"
 
 @app.route("/")
@@ -101,6 +102,8 @@ def train():
         resp=sir(data,y0,N,tc,eps)
     elif model=="SIRP":
         print("==========SIRP===========")
+        resp=sirp(data,y0,N,0,eps)
+    elif model=="FFix":
         resp=sirp(data,y0,N,tc,eps)
     elif model=="Logistic":
         print("==========Logistic===========")
