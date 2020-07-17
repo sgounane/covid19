@@ -62,8 +62,8 @@ def reloadData():
     for country in countries:
         r = requests.get("https://api.covid19api.com/dayone/country/"+country["ISO2"]).json()#https://api.covid19api.com/all')
         print(r)
-        #for a in r:
-           #dataCl.insert_one(a)
+        for a in r:
+           dataCl.insert_one(a)
     return "countries"
 
 @app.route("/")
@@ -71,13 +71,17 @@ def reloadData():
 def home():
     return render_template("home.html")
 
-@app.route("/simulateur")
+@app.route("/simulator")
 def simulateur():
-    return render_template("simulateur.html")
+    return render_template("simulator.html")
 
 @app.route("/team")
 def equipe():
-    return render_template("equipe.html")
+    return render_template("team.html")
+
+@app.route("/publications")
+def publications():
+    return render_template("publications.html")
 
 @app.route("/train",methods=["GET","POST"])
 def train():

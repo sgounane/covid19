@@ -3,6 +3,9 @@ let data={}
 let countries=[]
 let countryName="Morocco"
 let lbl=[]
+
+const algos=document.getElementsByClassName("algo")
+console.log(algos)
 const countriesCombo=document.getElementById("countries");
 const spinner=document.getElementById("spinner");
 countriesCombo.addEventListener('change',getStatistics);
