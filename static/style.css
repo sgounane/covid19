@@ -38,7 +38,7 @@ canvas{
 }
 
 footer{
-    position: fixed;
+    position: sticky;
     bottom: 0px;
     width: 100vw;
     text-align: center;
