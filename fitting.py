@@ -164,7 +164,7 @@ def bilogisticgamaModel(t,a1,b1,c1,gama1,a2,b2,c2,gama2):
 
 def bilogisticgama(I,N,T):
     n=I.size
-    x=np.linspace(0,n-1+T,T)
+    x=np.linspace(0,n-1+T,n+T)
     bounds=(0,[1e6,10,N,5,1e6,10,N,5])
     p0=np.random.exponential(size=8)
     (a1,b1,c1,gama1,a2,b2,c2,gama2),cov=optim.curve_fit(bilogisticgamaModel,x,I,bounds=bounds,p0=p0)
