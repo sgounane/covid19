@@ -81,3 +81,19 @@ footer{
       transform: rotate(360deg);
     }
   }
+
+.journal{
+    font-family: monospace,monospace;
+    font-style: italic;
+    font-size: 0.9em;
+}
+.author{
+    font-style: oblique; 
+    font-weight: bold;
+    font-family: monospace,monospace;
+}
+.title{
+    font-weight: bold;
+    font-style: italic;
+    font-family: monospace,monospace;
+}
