@@ -79,6 +79,10 @@ def simulateur():
 def equipe():
     return render_template("team.html")
 
+@app.route("/api")
+def api():
+    return render_template("api.html")
+
 @app.route("/publications")
 def publications():
     return render_template("publications.html")
