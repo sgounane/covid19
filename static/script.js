@@ -375,6 +375,7 @@ function creatChart(myCanvas){
 
 function postTrainData(){
     var myHeaders = new Headers();
+    sirParamsBlock.style.display="none"
     spinner.style.display="inline-block"
     myHeaders.append("Content-Type", "application/json");
     console.log("Training ....")
