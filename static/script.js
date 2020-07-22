@@ -406,8 +406,8 @@ function postTrainData(){
         let rows=""
 
         for(let i=n;i<n+T;i++){
-            let a=Number.parseInt(r.y.acc[i])
-            let b=Number.parseInt(r.y.acc[i-1])
+            let a=Math.ceil(r.y.acc[i])
+            let b=Math.ceil(r.y.acc[i-1])
             let c=a>b?a-b:0;
             rows=rows+`<tr><th scope="row">${i-n+1}</th>
                             <td>${a}</td>
