@@ -105,23 +105,24 @@ def train():
     tc=20
     eps=8
     model=body["model"]
+    T=10
     if model=="SIR":
         print("==========SIR===========")
-        resp=sir(data,y0,N,tc,eps)
+        resp=sir(data,y0,N,tc,eps,T)
     elif model=="SIRP":
         print("==========SIRP===========")
-        resp=sirp(data,y0,N,0,eps)
+        resp=sirp(data,y0,N,0,eps,T)
     elif model=="FFix":
-        resp=sirp(data,y0,N,tc,eps)
+        resp=sirp(data,y0,N,tc,eps,T)
     elif model=="Logistic":
         print("==========Logistic===========")
-        resp=logistic(I,N)
+        resp=logistic(I,N,T)
     elif model=="BiLogistic":
         print("==========BiLogistic===========")
-        resp=bilogistic(I,N)
+        resp=bilogistic(I,N,T)
     elif model=="BiLogisticG":
         print("==========BiLogisticG===========")
-        resp=bilogisticgama(I,N)
+        resp=bilogisticgama(I,N,T)
     
     return resp 
 

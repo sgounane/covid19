@@ -38,64 +38,78 @@
             </li>
         </ul>
     </div>
-        <div class="row pt-1">
-            <div id="content" class="col-lg-8 border">
-                <canvas id="myCanvas"></canvas>
-                <div id="spinner">
-                    <div class="lds-dual-ring"> </div>
-                </div>
-                
-            </div>
-            <div id="side" class="col-lg-4  border">            
-                <div id="liste" class="params">
-                    <label for="pays">Pays:</label>
-                    <select name="pays" id="countries" style="width: 200px;">
-                        
-                    </select> 
-                </div>
-                <div id="regions" class="params">
-                    <label for="region">Régions:</label>
-                    <select name="region" id="provinces" style="width: 200px;">
-                        <option value="all">Toutes les régions</option>
-                    </select> 
-                </div> 
-                <div class="params">
-                    <label for="population">Population:</label>
-                    <input type="number" id="population" style="width: 200px" name="population" min="0" max="100000000" step="100" value="100">     
-                </div>
-                <div  class="params">
-                    <label for="modele">Modèle:</label>
-                    <select name="modele" id="modele" style="width: 200px;">
-                        <option value="Logistic">Logistic</option>
-                        <option value="BiLogistic">Bi-Logistic</option>
-                        <option value="BiLogisticG">Modified bi-Logistic</option>
-                    </select> 
-                </div>
-                
-                <div id="sirParams" style="display: none;">
-                    <div>
-                        <div class="params">\( \beta \) :
-                            <input type="range" min="0" max="5" value="1" class="slider" id="betaSlider" step="0.001">
-                            <input type="number" id="beta" style="width: 6em" size="6" name="beta" min="0.00" max="10.00" step="0.0010"> 
-                        </div>
-                        <div class="params"> \( \gamma \) :
-                            <input type="range" min="0" max="1" value="0.5" class="slider" id="gamaSlider" step="0.0001">
-                            <input type="number" id="gama" style="width: 6em" name="gama" min="0" max="1" step="0.001"> 
-                        </div>
-                        <div class="params">\( \sigma \):
-                            <input type="range" min="0" max="1" value="0.01" class="slider" id="sigmaSlider" step="0.0001" >
-                            <input type="number" id="sigma"  style="width: 6em"  name="sigma" min="0" max="1" step="0.001">
-                        </div>
-                        <div class="params">
-                            \(\mathcal{R}_0:=\frac{\beta}{\gamma+\sigma}\)<label for="trainButton" id="r0Label"> </label>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-                <div class="params">
-                    <button id="trainButton" class="btn-success">Train</button>
-                </div>
-            </div>            
+    <div class="row pt-1">
+        <div id="content" class="col-lg-8 border">
+            <canvas id="myCanvas"></canvas>
+            <div id="spinner">
+                <div class="lds-dual-ring"> </div>
+            </div>     
         </div>
+        <div id="side" class="col-lg-4  border">            
+            <div id="liste" class="params">
+                <label for="pays">Pays:</label>
+                <select name="pays" id="countries" style="width: 200px;">
+                    
+                </select> 
+            </div>
+            <div id="regions" class="params">
+                <label for="region">Régions:</label>
+                <select name="region" id="provinces" style="width: 200px;">
+                    <option value="all">Toutes les régions</option>
+                </select> 
+            </div> 
+            <div class="params">
+                <label for="population">Population:</label>
+                <input type="number" id="population" style="width: 200px" name="population" min="0" max="100000000" step="100" value="100">     
+            </div>
+            <div  class="params">
+                <label for="modele">Modèle:</label>
+                <select name="modele" id="modele" style="width: 200px;">
+                    <option value="Logistic">Logistic</option>
+                    <option value="BiLogistic">Bi-Logistic</option>
+                    <option value="BiLogisticG">Modified bi-Logistic</option>
+                </select> 
+            </div>
+            
+            <div id="sirParams" style="display: none;">
+                <div>
+                    <div class="params">\( \beta \) :
+                        <input type="range" min="0" max="5" value="1" class="slider" id="betaSlider" step="0.001">
+                        <input type="number" id="beta" style="width: 6em" size="6" name="beta" min="0.00" max="10.00" step="0.0010"> 
+                    </div>
+                    <div class="params"> \( \gamma \) :
+                        <input type="range" min="0" max="1" value="0.5" class="slider" id="gamaSlider" step="0.0001">
+                        <input type="number" id="gama" style="width: 6em" name="gama" min="0" max="1" step="0.001"> 
+                    </div>
+                    <div class="params">\( \sigma \):
+                        <input type="range" min="0" max="1" value="0.01" class="slider" id="sigmaSlider" step="0.0001" >
+                        <input type="number" id="sigma"  style="width: 6em"  name="sigma" min="0" max="1" step="0.001">
+                    </div>
+                    <div class="params">
+                        \(\mathcal{R}_0:=\frac{\beta}{\gamma+\sigma}\)<label for="trainButton" id="r0Label"> </label>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="params">
+                <button id="trainButton"  class="btn-success">Train</button>
+            </div>
+            <div id="forcastDiv">
+                <h5>Forcast</h5>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Confermed</th>
+                        <th scope="col">New Cases</th>
+                    </tr>
+                    </thead>
+                    <tbody id="forcastTbody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>            
+    </div>
 </div>
 {% endblock containt%}

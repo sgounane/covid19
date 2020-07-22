@@ -3,9 +3,10 @@ let data={}
 let countries=[]
 let countryName="Morocco"
 let lbl=[]
-
-const algos=document.getElementsByClassName("algo")
-console.log(algos)
+let modelFamily="Logistic"
+const algosFamilly=document.getElementsByClassName("algo")
+console.log(algosFamilly)
+Array.from(algosFamilly).forEach(e=>e.addEventListener("click",setModelItems))
 const countriesCombo=document.getElementById("countries");
 const spinner=document.getElementById("spinner");
 countriesCombo.addEventListener('change',getStatistics);
@@ -13,11 +14,12 @@ const provincesCombo=document.getElementById("provinces");
 provincesCombo.addEventListener('change',getStatistics);
 const modeleCombo=document.getElementById("modele");
 modeleCombo.addEventListener('change',setModelParams);
-
+const sirParamsBlock=document.getElementById("sirParams")
 const gamaSlider=document.getElementById("gamaSlider");
 const betaSlider=document.getElementById("betaSlider");
 const sigmaSlider=document.getElementById("sigmaSlider");
 const rolbl=document.getElementById("r0Label");
+const forcastTable=document.getElementById("forcastTbody")
 
 
 const gamaInput=document.getElementById("gama");
@@ -53,13 +55,60 @@ let s=Number.parseFloat(sigmaSlider.value)
 let r0=Math.floor(1000*b/(g+s))/1000
 console.log(r0)
 rolbl.innerHTML=r0
-let model="SIR"
-
+let model="Logistic"
 function setModelParams(e){
     let elm=e.target.options;
     let idx=e.target.selectedIndex
     model=elm[idx].value
 }
+
+function setModelItems(e){
+    modeleCombo.innerHTML = "";
+    let T=Array.from(algosFamilly)
+    T=T.filter(el=>el.classList.contains("active"))
+    T.forEach(el=>el.classList.remove("active"));
+    modelFamily=e.target.innerText
+    e.target.classList.add("active")
+    if(modelFamily=="SIR"){
+        sirParamsBlock.style.display="block"
+        model="SIR"
+        let opt = document.createElement('option');
+        opt.appendChild( document.createTextNode('SIR') );
+        opt.value = 'SIR'; 
+        modeleCombo.appendChild(opt);
+        
+        opt = document.createElement('option');
+        opt.appendChild( document.createTextNode('Modified SIR1') );
+        opt.value = 'SIRP'; 
+        modeleCombo.appendChild(opt);
+
+        opt = document.createElement('option');
+        opt.appendChild( document.createTextNode('Modified SIR2') );
+        opt.value = 'FFix'; 
+        modeleCombo.appendChild(opt);
+    }else if(modelFamily=="Logistic"){
+        sirParamsBlock.style.display="none"
+        model="Logistic"
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode('Logistic') );
+        opt.value = 'Logistic'; 
+        modeleCombo.appendChild(opt);
+        
+        opt = document.createElement('option');
+        opt.appendChild( document.createTextNode('Bi-Logistic') );
+        opt.value = 'BiLogistic'; 
+        modeleCombo.appendChild(opt);
+
+        opt = document.createElement('option');
+        opt.appendChild( document.createTextNode('Modified bi-Logistic') );
+        opt.value = 'BiLogisticG'; 
+        modeleCombo.appendChild(opt);
+    }else if(modelFamily=="NN"){
+            sirParamsBlock.style.display="none"
+    }
+
+}
+
 //runSim()
 function runSim(e){
     if(e.target.getAttribute("id")==="gamaSlider"){
@@ -350,7 +399,22 @@ function postTrainData(){
     .then(response =>response.text())
     .then(result => {
         r=JSON.parse(result)
-        console.log(r)
+        n=data.lbl.length
+        //console.log((r.y))
+        let T=10
+        forcastTable.innerHTML=""
+        let rows=""
+
+        for(let i=n;i<n+T;i++){
+            let a=Number.parseInt(r.y.acc[i])
+            let b=Number.parseInt(r.y.acc[i-1])
+            let c=a>b?a-b:0;
+            rows=rows+`<tr><th scope="row">${i-n+1}</th>
+                            <td>${a}</td>
+                            <td>${c}</td>
+                        </tr>` 
+        }
+        forcastTable.innerHTML=rows
         params=r.params
         if ((model=="SIR") ||(model=="SIRP") ){
             updateChart(myChart,countryName,r.y,1)
