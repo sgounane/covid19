@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block containt%}
+<div class="container" id="container">
+    <div class="text-justify">
+        <h4>abstract</h4>
+        <p> While covid19 pandemic has ravaged all countries of the world with more than 13 million cases until July 15th, real-time monitoring of transmission is primary to estimate the real-time effective COVID-19 infected cases numbers in the early stage of outbreak and make a prediction of daily new cases in many countries.
+        This study was made by comparably simple mathematical and numerical methods to predict the effective infected cases of the epidemic outbreak per country with a reliable models. 
+        The basic notions of modeling epidemics were focusing on four models : logistic model, Richards growth model, generalized Richards model and multiple cycle models. The final goal of our approach  is to stay extremely close to the real available data, testing each one of these models. The logistic model has shown that it is not directly compatible with real available data. Therefore Richards growth model was presented and it directly works with the provided data. It allows to monitor the effective infected cases of the pandemic, but is unable to deal with the forecast part. To reconstruct data for the predicted Infected cases, the generalized Richards model was used and allows predictions of infection peaks. These various examples of prediction models are provided for illustration and show what countries are still expecting their infection peak.
+        </p>
+        <p> Several studies (Lloyd, $2009$; Wearing et al., $2005$) have shown that the estimates of the main parameters of epidemic transmission are influenced by the model's assumptions . Likewise, the composition of the population can greatly influence the dynamics of early epidemic growth; this is an issue that has recently received attention (Chowell et al., $2016$). For epidemic forecasts, taking into account the transmission effects of changes in population behavior and adherence to public health policies remains difficult (Springborn et al., $2015$; Funk et al., $2010$).</p>
+        <figure>
+            <img src="pic_trulli.jpg" alt="Trulli" style="width:100%">
+            <figcaption>Fig.1 - Cumulative cases at first days (Italy France Spain Chile Brazil Mexico Morocco Algeria Oman)</figcaption>
+        </figure> 
+        <h4>Mathematical modeling of  cumulative and infected cases</h4>
+        In this paper, we will firstly consider that the logistic type equations and its parameters are sufficient to describe and predict the evolution of the epidemic cumulative infected population to COVID-19 without additional requirements such as the virus incubation period, incidence rate, healing time and the basic reproduction number $\mathcal{R}_0$. The mathematical modeling has been built on the initial COVID-19-infected population. 
+        <h5> Logistic model </h5>
+        Logistic model has been firstly developed by Verhulst in his pioneer work on limits to population growth and  it is actually largely used in epidemiology and permits to understand  and/or predict the development and transmission of  various disease ,it  provides also a good model for the exponential growth that includes the so called saturation mechanism leading to the equilibrium. The logistic model has been defined by the following ordinary differential equation: 
+        $$
+        \displaystyle \frac{ d\:I_c{(t)}}{d\:t} = r I_c (t)\Big[1- \frac{I_c(t)}{K} \Big]
+        $$
+        where $I_c(t)$ describe the cumulative confirmed infected cases at each days $t$ and $K$ represent the maximum of confirmed cases. It is well known  that the solution of (\ref{Logistic}) is given by
+        $$
+        \displaystyle I_c{(t)}= \frac{ K I_c{(t_0)}}{I_c(t_0)+ (K-I_c(t_0))\exp(-r (t-t_0))}
+        $$
+        where  $t_0$ is the time when the first case  $I_c(t_0)$ occurred, $r$ is the exponential growth rate and $\displaystyle I_c{(t)} \to K$ as $t\to \infty$. We observe that for $ I_c(t) << K$, the equation (\ref{Logisticsol})  behaves exponential growth. However,  when the  total infected population $I_c(t)$ approaches $K$,  the rate of growth  slow and tend to zero, giving rise to an symmetrical $S$-form curve. 
+        In the other word, the solution (\ref{Logisticsol})  of (\ref{Logistic}) can be expressed as
+        $$
+        \displaystyle I_c{(t)}= \frac{ K}{ 1+ \exp(-r (t-t_0-\tau))}
+        $$
+        where $\displaystyle \tau=\frac{1}{r} \log \Big(\frac{K}{I_c (t_0)}-1\Big)$ represent the inflection point reached at  half of saturation  and let  $\displaystyle  \Delta t=\frac{\log(81)}{r}$ the measure of the time duration of the cycle, from $10\%$ to $90\%$ of saturation  and of saturation. The advantage of this formula that the used parameters can be interpreted, and their value can be estimated  before the closing of the evolution process.  Thanks to the expression (\ref{LogisticsolT}), the derivative of $I_c$ can be calculated as
+        $$
+        \displaystyle I_f(t):= \frac{ d\:I_c{(t)}}{d\:t} =  \frac{r K \exp(-r (t-t_0-\tau))}{\Big[ 1+ \exp(-r (t-t_0-\tau))\Big]^{2}}
+        $$
+        which represent the number of infected cases per days.
+
+        <figure>
+            <img src="pic_trulli.jpg" alt="Trulli" style="width:100%">
+            <figcaption>Fig.2 - The cumulative infected (right) and number of infected (left) per days individuals with $K=10000$ and various values of $r$ </figcaption>
+        </figure> 
+        <h4>Richards growth  model </h4>
+        <div> Richards nonlinear model is a very versatile model for describing many growth processes (cf. \cite{Gip,Wy,Wj})  which is a generalization of the well-known logistic model and is generally expressed in terms of a nonlinear differential equation \cite{Hgp}.\\
+        The  Richards growth equation can be written as:
+        $$
+        \displaystyle \frac{ d\:I_c{(t)}}{d\:t} = r I_c (t)\Big[1- \Big(\frac{I_c(t)}{K}\Big)^\gamma \Big]
+        $$
+        where the parameter $\gamma $ adjust the steepness of the curve. The solution can be computed by
+        $$
+        \displaystyle I_c{(t)}= \frac{ K I_c{(t_0)}}{\Big[ I^{\gamma}_c{(t_0)}+   (K^{\gamma}-I^{\gamma}_c{(t_0)})\:\exp( -{\gamma}r(t-t_0) )\Big]^{1/\gamma}}.
+        $$
+        In the other word,  (\ref{SolLogistic1}) can be written  as
+        $$
+        \displaystyle I_c{(t)}= \frac{ K}{ \Big[ 1+ \exp(- \gamma r (t-t_0-\tau)) \Big]^{1/\gamma}}.
+        $$
+        where $\displaystyle \tau=\frac{1}{r \gamma} \log \Big( \big(\frac{K}{I_c (t_0)}\big)^{\gamma}-1\Big)$.
+        This equation has also an exponential form, however the parameter $\gamma >0$ in the equation allow the form of the upper part of the curve to be disconnected of the form of the lower part. For $\gamma=1$ the model matches the logistic equation (\ref{Logistic}), we observe that for $\gamma>1$ the maximum slope of the curve at $\displaystyle I_c{(t)} >\frac{K}{2}$ and for  $\gamma<1$ the maximum slope of the curve at  $\displaystyle I_c{(t)} <\frac{K}{2}$.  The number of infected cases per days can be computed as
+        $$
+        \displaystyle I_f(t):= \frac{ d\:I_c{(t)}}{d\:t} =  \frac{r K \exp(-r \gamma(t-t_0-\tau))}{\Big[ 1+ \exp(-r \gamma(t-t_0-\tau))\Big]^{ 1+\frac{1}{\gamma}}}.
+        $$
+    </div>
+</div>
+{% endblock containt%}

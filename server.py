@@ -75,6 +75,15 @@ def home():
 def simulateur():
     return render_template("simulator.html")
 
+@app.route("/doc/sir")
+def sirDoc():
+    return render_template("sirDoc.html")
+
+
+@app.route("/doc/logistic")
+def logisticDoc():
+    return render_template("logisticDoc.html")
+
 @app.route("/team")
 def equipe():
     return render_template("team.html")
@@ -123,7 +132,6 @@ def train():
     elif model=="BiLogisticG":
         print("==========BiLogisticG===========")
         resp=bilogisticgama(I,N,T)
-    
     return resp 
 
 if __name__== "__main__":

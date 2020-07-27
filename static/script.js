@@ -6,12 +6,10 @@ let lbl=[]
 let modelFamily="Logistic"
 const algosFamilly=document.getElementsByClassName("algo")
 console.log(algosFamilly)
+const spinner=document.getElementById("spinner");
 Array.from(algosFamilly).forEach(e=>e.addEventListener("click",setModelItems))
 const countriesCombo=document.getElementById("countries");
-const spinner=document.getElementById("spinner");
 countriesCombo.addEventListener('change',getStatistics);
-const provincesCombo=document.getElementById("provinces");
-provincesCombo.addEventListener('change',getStatistics);
 const modeleCombo=document.getElementById("modele");
 modeleCombo.addEventListener('change',setModelParams);
 const sirParamsBlock=document.getElementById("sirParams")
@@ -20,13 +18,16 @@ const betaSlider=document.getElementById("betaSlider");
 const sigmaSlider=document.getElementById("sigmaSlider");
 const rolbl=document.getElementById("r0Label");
 const forcastTable=document.getElementById("forcastTbody")
-
-
 const gamaInput=document.getElementById("gama");
 const betaInput=document.getElementById("beta");
 const sigmaInput=document.getElementById("sigma");
 const populationInput=document.getElementById("population");
 populationInput.addEventListener("input",runSim)
+const helpIcon=document.getElementById("help")
+helpIcon.addEventListener("click",(e)=>{
+    if(modelFamily=="Logistic") window.open("/doc/logistic","_blank")
+    else if(modelFamily=="SIR") window.open("/doc/sir","_blank")
+})
 
 const trainBtn=document.getElementById("trainButton");
 trainBtn.addEventListener("click",postTrainData)
