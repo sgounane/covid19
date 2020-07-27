@@ -1,5 +1,6 @@
 const rk4 = require("ode-rk4");
 let data={}
+let lastDay=(new Date()).getTime() 
 let countries=[]
 let countryName="Morocco"
 let lbl=[]
@@ -406,12 +407,13 @@ function postTrainData(){
         let T=10
         forcastTable.innerHTML=""
         let rows=""
-
         for(let i=n;i<n+T;i++){
             let a=Math.ceil(r.y.acc[i])
             let b=Math.ceil(r.y.acc[i-1])
             let c=a>b?a-b:0;
-            rows=rows+`<tr><th scope="row">${i-n+1}</th>
+            let d=lastDay+(i-n)*86400000; // this gives you one full calendar date forward
+            let dd=new Date(d)
+            rows=rows+`<tr><th scope="row">${dd.getDate()+"/"+(dd.getMonth()+1)}</th>
                             <td>${a}</td>
                             <td>${c}</td>
                         </tr>` 
