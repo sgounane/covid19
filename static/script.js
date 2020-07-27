@@ -1,6 +1,6 @@
 const rk4 = require("ode-rk4");
 let data={}
-let lastDay=(new Date()).getTime() 
+let lastDay=""//(new Date()).getTime() 
 let countries=[]
 let countryName="Morocco"
 let lbl=[]
@@ -229,6 +229,8 @@ function getStatistics(e){
             let resp=JSON.parse(httpReq.response)
             resp=resp.filter(e=> e.Province=="false"||e.Province=="")
             tmax=resp.length
+            lastDay= new Date(resp[tmax-1].Date).getTime() 
+            console.log(lastDay)
             data=respToDataSets(resp)
             updateChart(myChart,countryName,data,0) 
         }
