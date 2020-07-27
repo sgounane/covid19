@@ -413,7 +413,7 @@ function postTrainData(){
             let c=a>b?a-b:0;
             let d=lastDay+(i-n)*86400000; // this gives you one full calendar date forward
             let dd=new Date(d)
-            rows=rows+`<tr><th scope="row">${dd.getDate()+"/"+(dd.getMonth()+1)}</th>
+            rows=rows+`<tr><th scope="row">${(dd.getDate()<10?"0":"")+dd.getDate()+"/"+(dd.getMonth()<9?"0":"")+(dd.getMonth()+1)}</th>
                             <td>${a}</td>
                             <td>${c}</td>
                         </tr>` 
