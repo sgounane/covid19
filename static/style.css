@@ -134,3 +134,18 @@ svg text{
     stroke:none;
     stroke-width:9.98863602"
 }
+
+.svgRegion{
+    fill: rgb(110, 199, 110);
+    stroke:#646462;
+    stroke-width:3.5;
+    stroke-linejoin:round;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:none
+}
+.svgRegion:hover{
+    fill: olivedrab;
+    cursor: pointer;
+    
+}

@@ -6,9 +6,10 @@ let countryName="Morocco"
 let lbl=[]
 let modelFamily="Logistic"
 const algosFamilly=document.getElementsByClassName("algo")
-console.log(algosFamilly)
-const spinner=document.getElementById("spinner");
 Array.from(algosFamilly).forEach(e=>e.addEventListener("click",setModelItems))
+const svgRegion=document.getElementsByClassName("svgRegion")
+Array.from(svgRegion).forEach(e=>e.addEventListener("click",showRegionDetails))
+const spinner=document.getElementById("spinner");
 const countriesCombo=document.getElementById("countries");
 countriesCombo.addEventListener('change',getStatistics);
 const modeleCombo=document.getElementById("modele");
@@ -58,6 +59,11 @@ let r0=Math.floor(1000*b/(g+s))/1000
 console.log(r0)
 rolbl.innerHTML=r0
 let model="Logistic"
+
+function showRegionDetails(e){
+    //alert(e.target.getAttribute("id"))
+}
+
 function setModelParams(e){
     let elm=e.target.options;
     let idx=e.target.selectedIndex
