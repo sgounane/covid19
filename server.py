@@ -1,16 +1,20 @@
-import sys 
-import os
 import pymongo
 import requests
 from flask import jsonify
+from regionsForm import RegionsData
 from bson.json_util import dumps
 from bson.json_util import loads
 from fitting import *
+import datetime
+
+
+
 #sys.path.append(os.path.abspath("./tools/sir"))
 dbname="coviddb"
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient[dbname]
 dataCl = mydb["data"]
+regionsCl = mydb["regions"]
 countryCl = mydb["country"]
 
 
@@ -27,7 +31,7 @@ import pandas as pd
 from lmfit import Parameters, minimize, report_fit
 #from forms import RegistrationForm,  LoginForm
 app=Flask(__name__)
-
+app.config['SECRET_KEY']="GOUNANE"
 CORS(app)
 
 @app.route("/countries")
@@ -69,7 +73,8 @@ def reloadData():
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    regionsRecord=regionsCl.find().sort("Date",pymongo.DESCENDING)[0]
+    return render_template("home.html",regionsData=regionsRecord)
 
 @app.route("/simulator")
 def simulateur():
@@ -96,7 +101,68 @@ def api():
 def publications():
     return render_template("publications.html")
 
+@app.route("/barkouch",methods=["GET","POST"])
+def updateRegions():
+    regionsRecord=regionsCl.find().sort("day",pymongo.DESCENDING)[0]
+    lastRecordDate=regionsRecord["Date"]
+    regionData=RegionsData()
+    if regionData.validate_on_submit():
+        day=regionData.data["day"]
+        day=datetime.datetime(year=day.year,  month=day.month, day=day.day)
+        if day > lastRecordDate:
+            total=regionData.data["total"]
+            confirmes=regionData.data["confirmes"]
+            actifs=regionData.data["actifs"]
+            deces=regionData.data["deces"]
+            gueries=regionData.data["gueries"]
+            contryRecord={        
+                "Country":"Morocco",
+                "CountryCode":"MA",
+                "Province":"",
+                "City":"",
+                "CityCode":"",
+                "Lat":"31.79",
+                "Lon":"-7.09",
+                "Confirmed":int(total),
+                "Deaths":int(deces),
+                "Recovered":int(gueries),
+                "Active":int(confirmes),
+                "Date":day
+            }
+            dataCl.insert_one(contryRecord)
+            tth=regionData.data["tth"]
+            chr=regionData.data["chr"]
+            fmk=regionData.data["fmk"]
+            rsk=regionData.data["rsk"]
+            bmk=regionData.data["bmk"]
+            cst=regionData.data["cst"]
+            msf=regionData.data["msf"]
+            dtf=regionData.data["dtf"]
+            sms=regionData.data["sms"]
+            gon=regionData.data["gon"]
+            lsh=regionData.data["lsh"]
+            dod=regionData.data["dod"]
+            regionsRecord={
+            "Date":datetime.datetime(year=day.year,  month=day.month, day=day.day),
+            "total" : int(confirmes),
+            "tth" : int(tth),
+            "chr" : int(chr),
+            "fmk" : int(fmk),
+            "rsk" : int(rsk),
+            "bmk" : int(bmk),
+            "cst" : int(cst),
+            "msf" : int(msf),
+            "dtf" : int(dtf),
+            "sms" : int(sms),
+            "gon" : int(gon),
+            "lsh" : int(lsh),
+            "dod" : int(dod),
+            }
+            regionsCl.insert_one(regionsRecord)
+            return redirect('/')
+    return render_template("regionsForm.html",regionData=regionData)
 @app.route("/train",methods=["GET","POST"])
+
 def train():
     body = request.json
     rowData=body["data"]

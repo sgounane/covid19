@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block containt%}
+<div class="container" id="container">
+    <br>
+    <form action="/barkouch" method="post" class="mt-10">
+        {{ regionData.hidden_tag() }}
+        <div class="row border border-warning rounded margin">
+            <div class="col-md-2">
+                <div class="form-group">
+                    {{regionData.day.label}}:
+                    {{regionData.day(class_="form-control")}}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    {{regionData.total.label}}:
+                    {{regionData.total(class_="form-control")}}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    {{regionData.confirmes.label}}:
+                    {{regionData.confirmes(class_="form-control")}}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    {{regionData.actifs.label}}:
+                    {{regionData.actifs(class_="form-control")}}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    {{regionData.gueries.label}}:
+                    {{regionData.gueries(class_="form-control")}}
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    {{regionData.deces.label}}:
+                    {{regionData.deces(class_="form-control")}}
+                </div>    
+            </div>
+        </div>
+
+<br>
+        <div class="row border border-warning marging-top-10 rounded">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{regionData.tth.label}}:
+                    {{regionData.tth(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.chr.label}}:
+                    {{regionData.chr(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.fmk.label}}:
+                    {{regionData.fmk(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.rsk.label}}:
+                    {{regionData.rsk(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.bmk.label}}:
+                    {{regionData.bmk(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.cst.label}}:
+                    {{regionData.cst(class_="form-control")}}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{regionData.msf.label}}:
+                    {{regionData.msf(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.dtf.label}}:
+                    {{regionData.dtf(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.sms.label}}:
+                    {{regionData.sms(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.gon.label}}:
+                    {{regionData.gon(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.lsh.label}}:
+                    {{regionData.lsh(class_="form-control")}}
+                </div>
+                <div class="form-group">
+                    {{regionData.dod.label}}:
+                    {{regionData.dod(class_="form-control")}}
+                </div>
+                
+            </div>
+        </div>
+        <input type="submit" method="POST" action="/barkouch" class="btn btn-primary margin" value="Submit">
+    </form>
+</div>
+ <br><br><br>
+{% endblock containt%}                                                                                      
+
