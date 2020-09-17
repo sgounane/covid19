@@ -10,7 +10,6 @@ class RegionsData(FlaskForm):
     total = IntegerField("Total confirmés", validators=[])
     confirmes = IntegerField("Nouveaux cas", validators=[])
     gueries = IntegerField('Guéris', validators=[])
-    actifs = IntegerField('Cas sous traitement', validators=[])
     deces = IntegerField('Décès', validators=[])
 
     tth = IntegerField('Tanger-Tétouan-Al Hoceïma', validators=[])

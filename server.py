@@ -112,7 +112,6 @@ def updateRegions():
         if day > lastRecordDate:
             total=regionData.data["total"]
             confirmes=regionData.data["confirmes"]
-            actifs=regionData.data["actifs"]
             deces=regionData.data["deces"]
             gueries=regionData.data["gueries"]
             contryRecord={        
