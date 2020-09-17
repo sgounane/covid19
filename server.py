@@ -103,13 +103,12 @@ def publications():
 
 @app.route("/barkouch",methods=["GET","POST"])
 def updateRegions():
-    regionsRecord=regionsCl.find().sort("day",pymongo.DESCENDING)[0]
-    lastRecordDate=regionsRecord["Date"]
     regionData=RegionsData()
     if regionData.validate_on_submit():
         day=regionData.data["day"]
         day=datetime.datetime(year=day.year,  month=day.month, day=day.day)
-        if day > lastRecordDate:
+        regionsRecord=regionsCl.find({"Date":day})
+        if regionsRecord.count()==0:
             total=regionData.data["total"]
             confirmes=regionData.data["confirmes"]
             deces=regionData.data["deces"]
@@ -142,7 +141,7 @@ def updateRegions():
             lsh=regionData.data["lsh"]
             dod=regionData.data["dod"]
             regionsRecord={
-            "Date":datetime.datetime(year=day.year,  month=day.month, day=day.day),
+            "Date":day,
             "total" : int(confirmes),
             "tth" : int(tth),
             "chr" : int(chr),
