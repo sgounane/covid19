@@ -109,9 +109,7 @@ def updateRegions():
         day=datetime.datetime(year=day.year,  month=day.month, day=day.day)
         day=day.strftime('%Y-%m-%dT%H:%M:%SZ')
         regionsRecord=regionsCl.find({"Date":day})
-        if regionsRecord.count()==0:
-            
-            
+        if regionsRecord.count()==0:  
             deces=int(regionData.data["deces"])
             gueries=int(regionData.data["gueries"])
             chr=int(regionData.data["chr"])
