@@ -8,7 +8,7 @@ class RegionsData(FlaskForm):
     day = DateField('Date', validators=[], format = '%d/%m/%Y',default=datetime.date.today())
     #day=DateField('Date',format='%d-%m-%y', default=datetime.date.today(),validators=[])
     total = IntegerField("Total confirmés", validators=[])
-    confirmes = IntegerField("Nouveaux cas", validators=[])
+    #confirmes = IntegerField("Nouveaux cas", validators=[])
     gueries = IntegerField('Guéris', validators=[])
     deces = IntegerField('Décès', validators=[])
 

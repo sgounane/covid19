@@ -107,39 +107,27 @@ def updateRegions():
     if regionData.validate_on_submit():
         day=regionData.data["day"]
         day=datetime.datetime(year=day.year,  month=day.month, day=day.day)
+        day=day.strftime('%Y-%m-%dT%H:%M:%SZ')
         regionsRecord=regionsCl.find({"Date":day})
         if regionsRecord.count()==0:
-            total=regionData.data["total"]
-            confirmes=regionData.data["confirmes"]
-            deces=regionData.data["deces"]
-            gueries=regionData.data["gueries"]
-            contryRecord={        
-                "Country":"Morocco",
-                "CountryCode":"MA",
-                "Province":"",
-                "City":"",
-                "CityCode":"",
-                "Lat":"31.79",
-                "Lon":"-7.09",
-                "Confirmed":int(total),
-                "Deaths":int(deces),
-                "Recovered":int(gueries),
-                "Active":int(confirmes),
-                "Date":day
-            }
-            dataCl.insert_one(contryRecord)
-            tth=regionData.data["tth"]
-            chr=regionData.data["chr"]
-            fmk=regionData.data["fmk"]
-            rsk=regionData.data["rsk"]
-            bmk=regionData.data["bmk"]
-            cst=regionData.data["cst"]
-            msf=regionData.data["msf"]
-            dtf=regionData.data["dtf"]
-            sms=regionData.data["sms"]
-            gon=regionData.data["gon"]
-            lsh=regionData.data["lsh"]
-            dod=regionData.data["dod"]
+            
+            
+            deces=int(regionData.data["deces"])
+            gueries=int(regionData.data["gueries"])
+            chr=int(regionData.data["chr"])
+            tth=int(regionData.data["tth"])
+            fmk=int(regionData.data["fmk"])
+            rsk=int(regionData.data["rsk"])
+            bmk=int(regionData.data["bmk"])
+            cst=int(regionData.data["cst"])
+            msf=int(regionData.data["msf"])
+            dtf=int(regionData.data["dtf"])
+            sms=int(regionData.data["sms"])
+            gon=int(regionData.data["gon"])
+            lsh=int(regionData.data["lsh"])
+            dod=int(regionData.data["dod"])
+            total=int(regionData.data["total"])
+            confirmes=chr+tth+fmk+rsk+bmk+cst+msf+dtf+sms+gon+lsh+dod
             regionsRecord={
             "Date":day,
             "total" : int(confirmes),
@@ -157,6 +145,22 @@ def updateRegions():
             "dod" : int(dod),
             }
             regionsCl.insert_one(regionsRecord)
+            
+            contryRecord={        
+                "Country":"Morocco",
+                "CountryCode":"MA",
+                "Province":"",
+                "City":"",
+                "CityCode":"",
+                "Lat":"31.79",
+                "Lon":"-7.09",
+                "Confirmed":int(total),
+                "Deaths":int(deces),
+                "Recovered":int(gueries),
+                "Active":int(confirmes),
+                "Date":day
+            }
+            dataCl.insert_one(contryRecord)
             return redirect('/')
     return render_template("regionsForm.html",regionData=regionData)
 @app.route("/train",methods=["GET","POST"])
