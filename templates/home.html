@@ -281,7 +281,7 @@
          <text xml:space="preserve" x="1800" y="2600" class="svgRegionTxt" id="gon">{{regionsData.gon|int}}</text>
          <text xml:space="preserve" x="1200" y="3100" class="svgRegionTxt" id="lsh">{{regionsData.lsh|int}}</text> 
          <text xml:space="preserve" x="600"  y="4200" class="svgRegionTxt" id="dod">{{regionsData.dod|int}}</text>
-         <text xml:space="preserve" x="1400" y="4400" class="svgRegionTxt" id="updt">Last update: {{regionsData.Date}}</text>
+         <text xml:space="preserve" x="1400" y="4400" class="svgRegionTxt" id="updt">Last update: {{regionsData.Date.split("T")[0]}}</text>
          <text xml:space="preserve" x="1800" y="3800"  id="updt">New cases: {{regionsData.total|int}}</text>
         </svg>
 </div>
